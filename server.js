@@ -12,6 +12,7 @@ var PORT = process.env.PORT || 8080;
 
 // Creating express app and configuring middleware needed for authentication
 var app = express();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -20,7 +21,7 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-var db = require("./models");
+const User = require('./models/User');
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/conquerror", {
     useNewUrlParser: true,
@@ -30,18 +31,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/conquerror", {
 
 
 // routes
-app.post("/api/signup", function (req, res) {
-    db.User.create({
-        email: req.body.email,
-        password: req.body.password
-    })
-        .then(function () {
-            res.redirect(307, "/api/login");
-        })
-        .catch(function (err) {
-            res.status(401).json(err);
-        });
-});
+app.use(require('./routes/userRoutes.js'));
+
+
 
 // Syncing our database and logging a message to the user upon success
 app.listen(PORT, () => {
