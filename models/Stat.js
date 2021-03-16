@@ -5,6 +5,10 @@ const statSchema = new Schema({
     statName: {
         type: String,
         required: true
+    },
+
+    value: {
+        type: Number
     }
 });
 
