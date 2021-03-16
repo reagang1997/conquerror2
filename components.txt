@@ -1,0 +1,24 @@
+- Add a signup button next to the login button
+
+-- Components
+
+- if logged in and on Admin home page
+    - Champ choice card
+        - will contatin the name of a Champ. a button for edit that will redirect to create 
+        - also button to add results to that championship
+
+- if creating a championship
+    - a stats card 
+        - with an input field that will hold stat name
+        - a container that holds all inputted stats
+        - add stat button
+    - a team card
+        - with an input field that will hold team name
+        - a container that holds all inputted teams
+        - add team button
+    - a Player card
+        - with an input field that will hold player name
+        - a container that holds all inputted players
+        - dropdown with all inputed teams to assign that player a team
+        - add players button
+    - save button that will post champ. to db
