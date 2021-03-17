@@ -5,6 +5,13 @@ const champSchema = new Schema({
 
     champName: String,
 
+    admin: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+
     stats: [
         {
             type: Schema.Types.ObjectId,
