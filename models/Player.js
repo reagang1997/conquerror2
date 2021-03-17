@@ -3,14 +3,15 @@ const Schema = mongoose.Schema;
 
 const playerSchema = new Schema({
     playerName: {
-        type: String,
-        required: true
-    },
+        type: String
+        },
 
     team: {
         type: Schema.Types.ObjectId,
         ref: 'Team'
-    }
+    },
+
+    stats: Array
 }); 
 
 const Player = mongoose.model('Player', playerSchema);

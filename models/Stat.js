@@ -8,7 +8,9 @@ const statSchema = new Schema({
     },
 
     value: {
-        type: Number
+        type: Number,
+        default: 0,
+        required: true
     }
 });
 

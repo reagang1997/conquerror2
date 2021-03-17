@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 
 const champSchema = new Schema({
 
+    champName: String,
+
     stats: [
         {
             type: Schema.Types.ObjectId,
