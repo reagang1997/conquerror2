@@ -11,7 +11,8 @@ const champSeed = [
         champName: 'The Great Championship',
         stats: [],
         players: [],
-        teams: []
+        teams: [],
+        admin: []
     }
 ];
 

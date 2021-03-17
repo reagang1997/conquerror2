@@ -3,6 +3,7 @@ const Champ = require('../models/Championship');
 const Player = require('../models/Player');
 const Team = require('../models/Team');
 const Stat = require('../models/Stat');
+const User = require('../models/User');
 
 mongoose.connect("mongodb://localhost/conquerror", {
     useNewUrlParser: true,
@@ -53,6 +54,15 @@ const demoChamp = async () => {
         }
     }
 
+    const addAdminToChamp = async () => {
+        const admin = await User.find({});
+        console.log(admin)
+        const champ = await Champ.findOne({champName: 'The Great Championship'});
+
+        const pushed = await Champ.findOneAndUpdate({champName: champ.champName}, {$push: {admin: admin[0]._id}});
+
+    }
+
     
 
     pushedStats();
@@ -61,6 +71,8 @@ const demoChamp = async () => {
     copyStatsToPlayer();
     assignPlayerToTeam();
     assignTeamToPlayer();
+
+    addAdminToChamp();
 
     
 }
@@ -71,18 +83,15 @@ demoChamp();
 const assignTeamToPlayer = async () => {
     const killaz = await Team.findOne({ teamName: 'Killaz' });
     const nukes = await Team.findOne({ teamName: 'Nukes' });
-    console.log('nukes:' , nukes)
-    console.log('killaz:' , killaz)
+    
 
     let pushed;
 
     killaz.players.forEach(async (killa) => {
-        console.log(killa);
         pushed = await Player.findOneAndUpdate({ _id: killa }, { team: killaz._id })
     })
 
     nukes.players.forEach(async (nuke) => {
-        console.log(nuke);
         pushed = await Player.findOneAndUpdate({ _id: nuke }, { team: nukes._id })
     })
 
