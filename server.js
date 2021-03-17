@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8081;
 
 
 // Creating express app and configuring middleware needed for authentication
@@ -21,8 +21,6 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-const User = require('./models/User');
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/conquerror", {
     useNewUrlParser: true,
     useFindAndModify: false
@@ -32,6 +30,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/conquerror", {
 
 // routes
 app.use(require('./routes/userRoutes.js'));
+app.use(require('./routes/playerRoutes.js'));
+app.use(require('./routes/champRoutes.js'));
+app.use(require('./routes/statRoutes.js'));
+app.use(require('./routes/teamRoutes.js'));
 
 
 
