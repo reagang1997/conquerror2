@@ -1,0 +1,8 @@
+.champDiv {
+    background-color: crimson;
+    padding: 2%;
+}
+
+.resultLink, .editLink {
+    text-align: right;
+}
