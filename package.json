@@ -1,0 +1,31 @@
+{
+  "name": "conquerror2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express-session": "^1.17.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0",
+    "passport-local": "^1.0.0",
+    "passport": "^0.4.1",
+    "passport-local-mongoose": "^6.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reagang1997/conquerror2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reagang1997/conquerror2/issues"
+  },
+  "homepage": "https://github.com/reagang1997/conquerror2#readme"
+}
