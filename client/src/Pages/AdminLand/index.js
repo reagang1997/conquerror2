@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import Champ from '../../components/ChampChoice';
+import AddChampBtn from '../../components/AddChampBtn';
 import axios from 'axios';
 
 function AdminLand() {
@@ -41,6 +42,7 @@ function AdminLand() {
             <h1>Admin Landing Page</h1>
             <h2>Insert some components here</h2>
             <Champ champName={champ}/>
+            <AddChampBtn />
         </div>
     );
 };
