@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import './style.css';
 import { BrowserRouter as Router, Route, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
+
+import PlayerCard from '../../components/PlayerCard/PlayerCard';
+
 import AddChampBtn from '../../components/AddChampBtn';
 import Search from '../../components/Search'
+
 
 function Home() {
 
@@ -59,6 +63,7 @@ function Home() {
                         {user.stats === 200 ? <Redirect to='/adminHome' /> : console.log('not logged in')}
                     </div>
                 </div>
+                <PlayerCard />
             </div>
         </div>
     )
