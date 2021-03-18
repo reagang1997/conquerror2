@@ -31,7 +31,7 @@
         z-index: -1;
       }
 
-      &:after {
+      :after {
         width: 32px;
         height: 32px;
         content: '';
@@ -54,7 +54,7 @@
     input:checked ~ label {
       color: #fff;
 
-      &:before {
+      :before {
         transform: translate(-50%, -50%) scale3d(56, 56, 1);
         opacity: 1;
       }
