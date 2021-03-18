@@ -9,6 +9,11 @@ router.post('/api/createChamp', async (req, res) => {
     res.send(newChamp);
 });
 
+router.get('/api/allChamp', async (req, res) => {
+    const allChamp = await Champ.find({});
+    res.send(allChamp);
+})
+
 router.put('/api/generateDemoChamp', async (req, res) => {
 
 });
