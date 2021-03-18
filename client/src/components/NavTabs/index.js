@@ -17,7 +17,6 @@ function NavTabs() {
             <div className="collapse navbar-collapse justify-content-end">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Search></Search>
                     </li>
                     <li className="nav-item">
                         <Login></Login>
