@@ -3,14 +3,14 @@ import './style.css';
 import { BrowserRouter as Router, Route, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
 
-import PlayerCard from '../../components/PlayerCard/PlayerCard';
+import PlayerCard from '../../components/PlayerCard/index';
 
-import AddChampBtn from '../../components/AddChampBtn';
+import AddChampBtn from '../../components/AddChampBtn/index';
 
 import Search from '../../components/Search'
 import { Button } from 'react-bootstrap';
 
-import TeamCard from '../../components/TeamCard/TeamCard';
+import TeamCard from '../../components/TeamCard/index';
 
 
 
