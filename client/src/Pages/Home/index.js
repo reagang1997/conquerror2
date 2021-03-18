@@ -7,6 +7,7 @@ import PlayerCard from '../../components/PlayerCard/PlayerCard';
 
 import AddChampBtn from '../../components/AddChampBtn';
 import Search from '../../components/Search'
+import { Button } from 'react-bootstrap';
 
 
 function Home() {
@@ -35,9 +36,8 @@ function Home() {
 
     return (
         <div>
-            <div className='row'>
-                <div className='col-md-6'><Search /></div>
-            </div>
+
+
             <div className="row">
 
                 <div class="col-5 jumbotron">
@@ -63,7 +63,12 @@ function Home() {
                         {user.stats === 200 ? <Redirect to='/adminHome' /> : console.log('not logged in')}
                     </div>
                 </div>
-                <PlayerCard />
+                <div className='center' >
+                    <Search className='center' />
+                    <div className='button'>
+                        <Button>Search</Button>
+                    </div>
+                </div>
             </div>
         </div>
     )
