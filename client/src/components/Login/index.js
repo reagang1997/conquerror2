@@ -29,8 +29,8 @@ function Login(){
 
     return(
         <div>
-            <input placeholder='username' onChange={(e) => setUser({...user, email: e.target.value})}/>
-            <input placeholder='Password' type='password' onChange={(e) => setUser({...user, password: e.target.value})}/>
+            <input id='email' placeholder='Email' onChange={(e) => setUser({...user, email: e.target.value})}/>
+            <input id='password' placeholder='Password' type='password' onChange={(e) => setUser({...user, password: e.target.value})}/>
             <button className='btn' onClick={loginUser}>Login</button>
             {user.stats === 200 ? <Redirect to='/adminHome'/> : console.log('not logged in')}
         </div>

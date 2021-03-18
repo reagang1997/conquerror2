@@ -2,6 +2,29 @@
     margin: 50px;
 }
 
+.center{
+    margin: auto;
+    width: 500px;
+    margin-top: 50px;
+}
+
+.button {
+    margin: auto;
+    width: 100px;
+    margin-top: 5px;
+}
+
 .justify-content-center {
     margin-top: 1%;
+}
+
+#email{
+    width: 200px;
+    margin-right: 25px;
+}
+
+#password{
+    width: 200px;
+    margin-right: 25px;
+
 }
