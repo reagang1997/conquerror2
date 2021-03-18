@@ -6,8 +6,12 @@ import axios from 'axios';
 import PlayerCard from '../../components/PlayerCard/PlayerCard';
 
 import AddChampBtn from '../../components/AddChampBtn';
+
 import Search from '../../components/Search'
 import { Button } from 'react-bootstrap';
+
+import TeamCard from '../../components/TeamCard/TeamCard';
+
 
 
 function Home() {
@@ -70,6 +74,10 @@ function Home() {
                     </div>
                 </div>
             </div>
+                <PlayerCard />
+                
+                
+                
         </div>
     )
 }
