@@ -10,44 +10,43 @@ const TeamCard = () => {
             <ul class="list-group list-group-flush" id="teamGroup">
                 <li class="list-group-item" id="team">Team One Name</li>
 
-                <input class="rounderCorners padding-x-20" list="input-drop" type="text" id="input-search"
+                <input type="text" id="input-team"
                     name="fname" placeholder="Team Name">
-
                 </input>
 
                 <li class="list-group-item" id="team">Team Two Name</li>
 
-                <input class="rounderCorners padding-x-20" list="input-drop" type="text" id="input-search"
+                <input  type="text" id="input-team"
                     name="fname" placeholder="Team Name">
-
                 </input>
+                
                 <li class="list-group-item" id="team">Team Three Name</li>
 
-                <input class="rounderCorners padding-x-20" list="input-drop" type="text" id="input-search"
+                <input  type="text" id="input-team"
                     name="fname" placeholder="Team Name">
-
                 </input>
+                
 
                 <li class="list-group-item" id="team">Team Four Name</li>
 
-                <input class="rounderCorners padding-x-20" list="input-drop" type="text" id="input-search"
+                <input  type="text" id="input-team"
                     name="fname" placeholder="Team Name">
-
                 </input>
+               
 
                 <li class="list-group-item" id="team">Team Five Name</li>
 
-                <input class="rounderCorners padding-x-20" list="input-drop" type="text" id="input-search"
+                <input  type="text" id="input-team"
                     name="fname" placeholder="Team Name">
-
                 </input>
+              
 
                 <li class="list-group-item" id="team">Team Six Name</li>
 
-                <input class="rounderCorners padding-x-20" list="input-drop" type="text" id="input-search"
+                <input type="text" id="input-team"
                     name="fname" placeholder="Team Name">
-
                 </input>
+                
 
             </ul>
 
