@@ -3,6 +3,10 @@
     padding: 2%;
 }
 
+.champName {
+    background-color: lightcoral;
+}
+
 .resultLink, .editLink {
     text-align: right;
 }
