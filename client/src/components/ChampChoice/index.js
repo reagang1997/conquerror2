@@ -11,8 +11,8 @@ const ChampChoice = ({champName}) => {
         <div className="container">
             <div className="row champDiv">
                 <span className="col-8 champName">{champName}</span>
-                <a className="col-2 resultLink" href="#">Add Results</a>
-                <a className="col-2 editLink" href="#">Edit</a>
+                <button className="col-2 resultLink" href="#">Add Results</button>
+                <button className="col-2 editLink" href="#">Edit</button>
             </div>
         </div>
     )

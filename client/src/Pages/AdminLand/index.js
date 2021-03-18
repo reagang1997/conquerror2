@@ -3,6 +3,8 @@ import './style.css';
 import Champ from '../../components/ChampChoice';
 import AddChampBtn from '../../components/AddChampBtn';
 import axios from 'axios';
+import DemoCard from '../../components/DemoCard';
+import NewDemoCard from '../../components/NewDemoCardlol';
 
 function AdminLand() {
 
@@ -36,13 +38,15 @@ function AdminLand() {
 
 
     }
-    
+
     return (
         <div>
             <h1>Admin Landing Page</h1>
             <h2>Insert some components here</h2>
-            <Champ champName={champ}/>
+            <Champ champName={champ} />
             <AddChampBtn />
+            <DemoCard />
+            <NewDemoCard />
         </div>
     );
 };

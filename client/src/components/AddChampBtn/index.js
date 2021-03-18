@@ -10,7 +10,7 @@ const NewChampBtn = () => {
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-4 newChamp">
-                    <span className="addChampBtn">Add New Champ</span>
+                    <button className="addChampBtn">Add New Champ</button>
                 </div>
             </div>
         </div>
