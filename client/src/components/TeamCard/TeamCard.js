@@ -51,6 +51,8 @@ const TeamCard = () => {
 
             </ul>
 
+            <button class="button add" type="add" value="Add">Add Another Team</button>
+
             <button class="button submit" type="submit" value="Search">Search</button>
 
         </div>
