@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import { BrowserRouter as Router, Route, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
+import AddChampBtn from '../../components/AddChampBtn';
 
 function Home() {
 
