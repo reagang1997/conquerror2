@@ -1,5 +1,8 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/InputGroup';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const PlayerCard = () => {
     return (
@@ -8,19 +11,26 @@ const PlayerCard = () => {
                 <div className="row">
                     <div className="col">
                         {/* This next bit will be appended in a list on the working version. This is mockup */}
-                        <div className="inputGroup">
-                            <input id="option1" name="option1" type="checkbox" />
-                            <label for="option1">Option One</label>
-                        </div>
+                        <ListGroup>
+                            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                        </ListGroup>
                     </div>
                     <div className="col">
 
-                        <div className="input-group mb-3">
-                            <input type="text" className="form-control" placeholder="Player's name" aria-label="Player's name" aria-describedby="button-addon2"/>
-                                <div className="input-group-append">
-                                    <button className="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
-                                </div>
-                        </div>
+                        <InputGroup className="mb-3">
+                            <FormControl
+                                placeholder="Recipient's username"
+                                aria-label="Recipient's username"
+                                aria-describedby="basic-addon2"
+                            />
+                            <InputGroup.Append>
+                                <InputGroup.Text id="basic-addon2">Add</InputGroup.Text>
+                            </InputGroup.Append>
+                        </InputGroup>
                     </div>
                 </div>
             </div>
