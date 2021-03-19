@@ -44,7 +44,6 @@ function AdminLand() {
             <br/>
             <Champ champName={champ} />
             <AddChampBtn />
-            <NewDemoCard />
         </div>
     );
 };

@@ -1,9 +1,6 @@
-import React from "react";
-import "./style.css";
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/InputGroup';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button'
+import React from 'react';
+import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
+import './style.css';
 
 const PlayerCard = () => {
     return (
@@ -13,7 +10,7 @@ const PlayerCard = () => {
                     <div className="col md-4">
                         {/* This next bit will be appended in a list on the working version. This is mockup */}
                         <ListGroup>
-                            <ListGroup.Item>Cras justo odio</ListGroup.Item><Button variant="danger">Danger</Button>{''}
+                            <ListGroup.Item>Cras justo odio<Button variant="dark" className="right">delete?</Button>{''}</ListGroup.Item>
                             <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
                             <ListGroup.Item>Morbi leo risus</ListGroup.Item>
                             <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
