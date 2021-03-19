@@ -11,6 +11,7 @@ import Search from '../../components/Search'
 import { Button } from 'react-bootstrap';
 
 import TeamCard from '../../components/TeamCard/index';
+import NewDemoCard from '../../components/NewDemoCardlol';
 
 
 
@@ -74,7 +75,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-                <PlayerCard />
+                <NewDemoCard />
                 
                 
                 
