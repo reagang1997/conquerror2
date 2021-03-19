@@ -45,40 +45,51 @@ function Home() {
 
             <div className="row">
 
-                <div class="col-5 jumbotron">
-                    <h1 class="display-4">Welcome to Conquerror!</h1>
-                    <img src="https://via.placeholder.com/400" alt="gif of making champ" />
+                <div className="col-7 jumbotron">
+                    <h1 className="display-4 center">Welcome to Conquerror!</h1>
+                    <img src="https://via.placeholder.com/400" alt="gif of making champ" className=""/>
+                    <div className='center' >
+                        <Search className='center' />
+                        <div className='button'>
+                            <Button>Search</Button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-5 jumbotron">
-                    <div class="row justify-content-center">
-                        <h1 class="display-4">Sign Up</h1>
+                <div className="col-3 ">
+                    <div className="row">
+                        <div className="col jumbotron">
+                            <div className="row justify-content-center">
+                                <h1 className="display-4">Sign Up</h1>
+                            </div>
+                            <div className="row justify-content-center">
+                                <input placeholder='email' onChange={(e) => setUser({ ...user, email: e.target.value })}></input>
+                            </div>
+                            <div className="row justify-content-center">
+                                <input placeholder='username' onChange={(e) => setUser({ ...user, username: e.target.value })}></input>
+                            </div>
+                            <div className="row justify-content-center">
+                                <input placeholder='password' type='password' onChange={(e) => setUser({ ...user, password: e.target.value })}></input>
+                            </div>
+                            <div className="row justify-content-center">
+                                <button className="btn" onClick={createUser}>Login</button>
+                                {user.stats === 200 ? <Redirect to='/adminHome' /> : console.log('not logged in')}
+                            </div>
+                        </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <input placeholder='email' onChange={(e) => setUser({ ...user, email: e.target.value })}></input>
-                    </div>
-                    <div class="row justify-content-center">
-                        <input placeholder='username' onChange={(e) => setUser({ ...user, username: e.target.value })}></input>
-                    </div>
-                    <div class="row justify-content-center">
-                        <input placeholder='password' type='password' onChange={(e) => setUser({ ...user, password: e.target.value })}></input>
-                    </div>
-                    <div class="row justify-content-center">
-                        <button className="btn" onClick={createUser}>Login</button>
-                        {user.stats === 200 ? <Redirect to='/adminHome' /> : console.log('not logged in')}
+                    <div className="row">
+                        <div className="col">
+
+                        </div>
+
                     </div>
                 </div>
-                <div className='center' >
-                    <Search className='center' />
-                    <div className='button'>
-                        <Button>Search</Button>
-                    </div>
-                </div>
+
             </div>
-                <NewDemoCard />
-                
-                
-                
+
+
+
+
         </div>
     )
 }
