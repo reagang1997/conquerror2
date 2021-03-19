@@ -41,11 +41,9 @@ function AdminLand() {
 
     return (
         <div>
-            <h1>Admin Landing Page</h1>
-            <h2>Insert some components here</h2>
+            <br/>
             <Champ champName={champ} />
             <AddChampBtn />
-            <DemoCard />
             <NewDemoCard />
         </div>
     );
