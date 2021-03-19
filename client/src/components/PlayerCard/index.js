@@ -10,7 +10,7 @@ const PlayerCard = () => {
                     <div className="col md-4">
                         {/* This next bit will be appended in a list on the working version. This is mockup */}
                         <ListGroup>
-                            <ListGroup.Item>Cras justo odio</ListGroup.Item><Button variant="dark" className="right">delete?</Button>{''}
+                            <ListGroup.Item>Cras justo odio<Button variant="dark" className="right">delete?</Button>{''}</ListGroup.Item>
                             <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
                             <ListGroup.Item>Morbi leo risus</ListGroup.Item>
                             <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
