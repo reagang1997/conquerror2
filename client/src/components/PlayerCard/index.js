@@ -4,6 +4,7 @@ import './style.css';
 
 const PlayerCard = () => {
     return (
+
         <Container>
             <br />
             <Row>
@@ -15,6 +16,7 @@ const PlayerCard = () => {
                             <ListGroup.Item action variant="secondary">Thing to track<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
                             <ListGroup.Item action variant="secondary">Thing to track<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
                             <ListGroup.Item action variant="secondary">Thing to track<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
+
                         </ListGroup>
                     </Card>
                 </Col>

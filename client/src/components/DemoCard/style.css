@@ -10,6 +10,10 @@
     padding: 1%;
 }
 
+.right {
+    float: right;
+  }
+
 button {
     border: none;
 }

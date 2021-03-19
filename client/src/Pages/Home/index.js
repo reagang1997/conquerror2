@@ -79,7 +79,7 @@ function Home() {
                     </div>
                     <div className="row">
                         <div className="col">
-
+                            
                         </div>
 
                     </div>
