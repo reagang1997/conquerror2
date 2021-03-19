@@ -3,17 +3,22 @@ import "./style.css"
 
 const StatCard = () => {
     return (
+        <Container>
+            <br />
+            <Row>
+                <Col md={5} className="leftDiv">
+                    <h1>Current Tracking Stat</h1>
+                    <Card className="bottomMarg">
+                        <ListGroup variant="flush">
+                            <ListGroup.Item action variant="secondary">Primary Stat<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
+                            <ListGroup.Item action variant="secondary">Secondary Stat<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
+                            <ListGroup.Item action variant="secondary">Tertiary Stat<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
+                        </ListGroup>
+                    </Card>
+                </Col>
+            </Row>
 
-        <div className="card" id="statCard">
-            <div class="card-header">
-                Current Tracking Stat
-             </div>
-            <ul class="list-group list-group-flush" id="statGroup">
-                <li class="list-group-item" id="primStat">Primary Stat</li>
-                <li class="list-group-item" id="secStat">Secondary Stat</li>
-                <li class="list-group-item" id="thirStat">Tertiary Stat</li>
-            </ul>
-        </div>
+        </Container>
     )
 };
 
