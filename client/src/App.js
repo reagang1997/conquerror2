@@ -3,6 +3,7 @@ import NavTabs from './components/NavTabs';
 import Home from './Pages/Home';
 import AdminLand from './Pages/AdminLand';
 import CreateChamp from './Pages/CreateChamp';
+import AddResults from './Pages/AddResults';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route exact path="/adminHome" component={AdminLand} />
       <Route exact path='/createChampionship' component={CreateChamp} />
+      <Route exact path='/addResults' component={AddResults} />
       
     </Router>
   );
