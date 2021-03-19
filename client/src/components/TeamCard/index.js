@@ -1,9 +1,7 @@
-
 import React from "react";
 import "./style.css";
 import Button from 'react-bootstrap/Button';
-import { Container, Row, Col, Card, ListGroup, Form, Dropdown, DropdownButton, InputGroup } from 'react-bootstrap';
-
+import { Container, Row, Col, Card, ListGroup, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 
 const TeamCard = () => {
     return (
@@ -15,10 +13,14 @@ const TeamCard = () => {
                 <Col md={{ span: 5, offset: 2 }} className="rightDiv">
                     <h1>Create Teams</h1>
                     <InputGroup className="mb-3">
-                        <InputGroup.Prepend>
-                            <InputGroup.Text id="inputGroup-sizing-default">Create Team</InputGroup.Text>
-                        </InputGroup.Prepend>
-                    </InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text id="inputGroup-sizing-default">Create Team</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <FormControl
+                                    aria-label="Default"
+                                    aria-describedby="inputGroup-sizing-default"
+                                />
+                            </InputGroup>
                     
                         <Button variant="dark" block className="right test">Add Team</Button>
                         <Form className="bottomMarg">
@@ -52,7 +54,7 @@ const TeamCard = () => {
 
 
 
-            </Row>
+        </Row>
 
         </Container>
 

@@ -13,7 +13,7 @@ const StatCard = () => {
                     <h1>Current Tracking Stat</h1>
                     <Card className="bottomMarg">
                         <ListGroup variant="flush">
-                            <ListGroup.Item action variant="secondary">Primary Stat<Button variant="dark" className="right">Add</Button><Button variant="dark" className="right">Delete</Button></ListGroup.Item>
+                            <ListGroup.Item action variant="secondary">Primary Stat <Button variant="dark" className="right">Delete</Button> <Button variant="dark" className="right">Add</Button></ListGroup.Item>
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
                                     <InputGroup.Text id="inputGroup-sizing-default">Track Stat</InputGroup.Text>
@@ -23,7 +23,7 @@ const StatCard = () => {
                                     aria-describedby="inputGroup-sizing-default"
                                 />
                             </InputGroup>
-                            <ListGroup.Item action variant="secondary">Secondary Stat<Button variant="dark" className="right">Add</Button><Button variant="dark" className="right">Delete</Button></ListGroup.Item>
+                            <ListGroup.Item action variant="secondary">Secondary Stat<Button variant="dark" className="right">Delete</Button><Button variant="dark" className="right">Add</Button></ListGroup.Item>
 
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
@@ -34,7 +34,7 @@ const StatCard = () => {
                                     aria-describedby="inputGroup-sizing-default"
                                 />
                             </InputGroup>
-                            <ListGroup.Item action variant="secondary">Tertiary Stat<Button variant="dark" className="right">Add</Button><Button variant="dark" className="right">Delete</Button></ListGroup.Item>
+                            <ListGroup.Item action variant="secondary">Tertiary Stat<Button variant="dark" className="right">Delete</Button><Button variant="dark" className="right">Add</Button></ListGroup.Item>
                             <InputGroup className="mb-3">
                                 <InputGroup.Prepend>
                                     <InputGroup.Text id="inputGroup-sizing-default">Track Stat</InputGroup.Text>
