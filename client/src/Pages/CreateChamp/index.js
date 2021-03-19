@@ -10,8 +10,8 @@ function CreateChamp() {
             <h1 className="title">Create Champ Page</h1>
             <h2>Insert some components here</h2>
             <PlayerCard/>
-            {/* <StatCard/>
-            <TeamCard/> */}
+            <StatCard/>
+            <TeamCard/>
         </div>
     );
 };
