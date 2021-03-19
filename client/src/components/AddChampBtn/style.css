@@ -1,10 +1,11 @@
 .newChamp {
-    background-color: crimson;
+    background-color: slategray;
     padding: 2%;
     text-align: center;
+    border-radius: 35px 5px;
 }
 
 button {
     border: none;
-    background-color: lightcoral;
+    background-color: lightgray;
 }

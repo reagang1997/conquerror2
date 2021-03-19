@@ -1,10 +1,11 @@
 .champDiv {
-    background-color: crimson;
+    background-color: slategray;
     padding: 2%;
+    border-radius: 35px 5px;
 }
 
 .champName {
-    background-color: lightcoral;
+    background-color: lightgray;
 }
 
 .resultLink, .editLink {
