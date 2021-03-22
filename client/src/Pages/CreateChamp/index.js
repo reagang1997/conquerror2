@@ -15,7 +15,9 @@ function CreateChamp() {
 
     const [players, setPlayers] = useState([]);
 
-    
+    const [champ, setChamp] = useState({ name: '' });
+
+
 
     useEffect(() => {
 
@@ -25,17 +27,25 @@ function CreateChamp() {
         <div className="container">
             <br />
             <div>
-                <h1 className="title shadow">Create Champ Page
-                 <InputGroup className="mb-3">
+                <h1 className="title shadow"> <h1 id={'create-champ'}>Create Champ Page</h1>
+                <InputGroup className="mb-3">
                         <FormControl
                             placeholder="Create Champ League"
                             aria-label="Create Champ League"
                             aria-describedby="basic-addon2"
+                            value={champ.name}
+                            onChange={e => setChamp({ name: e.target.value })}
                         />
                     </InputGroup>
 
-                    <Button variant="dark">Create</Button>
+                    <Button variant="dark" onClick={(e) => {
+                        e.preventDefault();
+                        console.log(champ.name);
+                        document.getElementById('create-champ').innerHTML = champ.name
+                    }
+                    }>Create</Button>
                 </h1>
+                
             </div>
             <StatCard stats={stats} setStats={setStats} className="shadow" />
 
