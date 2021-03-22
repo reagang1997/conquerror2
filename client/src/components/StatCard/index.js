@@ -23,9 +23,7 @@ const StatCard = () => {
         // </InputGroup>;
         const outerDiv = document.createElement('div');
         outerDiv.setAttribute('class', 'mb-3 input-group');
-        const inputEl = document.createElement('input');
-        inputEl.setAttribute('placeholder', 'Stat to track');
-        inputEl.setAttribute('aria-label', 'Stat to track');
+        const inputEl = document.createElement('h3');
         inputEl.setAttribute('aria-describedby', 'basic-addon2');
         inputEl.setAttribute('class', 'form-control');
         const innerDiv = document.createElement('div');
@@ -34,6 +32,7 @@ const StatCard = () => {
         btnEl.setAttribute('type', 'button');
         btnEl.setAttribute('class', 'btn btn-outline-dark');
 
+        inputEl.textContent = 'tracking stat name';
         btnEl.textContent = 'delete';
 
         outerDiv.appendChild(inputEl);
