@@ -34,7 +34,11 @@ const StatCard = ({stats, setStats}) => {
                 <Col md={5} className="leftDiv shadow" id='appendBlankStat'>
                     <h1>Current Tracking Stats</h1>
                     <br />
-                    
+                    {stats.map(stat => {
+                        return(
+                            <InputStat name={stat.name}/>
+                        );
+                    })}
 
                 </Col>
 
