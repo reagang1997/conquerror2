@@ -37,7 +37,7 @@ const TeamCard = () => {
 
             <br />
             <Row>
-                <Col md={5} className="leftDiv shadow">
+                <Col md={5} className="leftDiv shadow" id='appendBlankTeam'>
                     <h1>Teams</h1>
                     <br />
                     <InputGroup className="mb-3">
