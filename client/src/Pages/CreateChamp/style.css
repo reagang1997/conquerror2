@@ -11,6 +11,7 @@ h1 {
     width: 75%;
     margin: auto;
     padding: 1%;
+    margin-bottom: 50px;
 }
 
 .leftDiv, .rightDiv {
