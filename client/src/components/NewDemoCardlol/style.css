@@ -11,6 +11,7 @@
 }
 
 .leftDiv, .rightDiv {
-    border-radius: 35px 5px;
+    border-radius: 5px 35px;
     background-color: slategray;
 }
+
