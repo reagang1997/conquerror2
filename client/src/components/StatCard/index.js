@@ -6,7 +6,7 @@ import './style.css';
 
 
 
-const StatCard = ({stats, setStats}) => {
+const StatCard = ({stats, players, teams, setStats, setPlayers, setTeams}) => {
 
     const [tmpStat, setTmpStat] = useState({
         name: ""
@@ -36,7 +36,13 @@ const StatCard = ({stats, setStats}) => {
                     <br />
                     {stats.map(stat => {
                         return(
-                            <InputStat name={stat.name}/>
+                            <InputStat name={stat.name} flag='stat'
+                            stats={stats}
+                            teams={teams}
+                            players={players}
+                            setStats={setStats}
+                            setPlayers={setPlayers}
+                            setTeams={setTeams}/>
                         );
                     })}
 

@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
-import { InputGroup, FormControl, Button} from 'react-bootstrap';
+import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import PlayerCard from '../../components/PlayerCard';
 import StatCard from '../../components/StatCard';
 import TeamCard from '../../components/TeamCard';
@@ -11,17 +11,19 @@ function CreateChamp() {
 
     const [stats, setStats] = useState([]);
 
+    const [teams, setTeams] = useState([]);
+
     const [players, setPlayers] = useState([]);
 
-    const [teams, setTeams] = useState([]);
+    
+
+    useEffect(() => {
+
+    }, [teams])
 
     return (
         <div className="container">
             <br />
-
-          
-
-
             <div>
                 <h1 className="title shadow">Create Champ Page
                  <InputGroup className="mb-3">
@@ -36,9 +38,10 @@ function CreateChamp() {
                 </h1>
             </div>
             <StatCard stats={stats} setStats={setStats} className="shadow" />
-            <TeamCard  teams={teams} setTeams={setTeams}/>
-            <PlayerCard players={players} setPlayers={setPlayers}/>
-          
+
+            <TeamCard teams={teams} setTeams={setTeams} />
+            <PlayerCard players={players} setPlayers={setPlayers} teams={teams} />
+
             <SaveBtn />
         </div>
     );
