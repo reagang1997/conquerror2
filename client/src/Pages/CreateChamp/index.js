@@ -26,7 +26,6 @@ function CreateChamp() {
     return (
         <div className="container">
             <br />
-
             <div>
                 <h1 className="title shadow"> <h1 id={'create-champ'}>Create Champ Page</h1>
                 <InputGroup className="mb-3">
@@ -53,8 +52,10 @@ function CreateChamp() {
 
 
             <StatCard stats={stats} setStats={setStats} className="shadow" />
+
             <TeamCard teams={teams} setTeams={setTeams} />
             <PlayerCard players={players} setPlayers={setPlayers} teams={teams} />
+
             <SaveBtn />
         </div>
     );
