@@ -10,8 +10,8 @@ function CreateChamp() {
     return (
         <div className="container">
             <br />
-            <h1 className="title">Create Champ Page</h1>
-            <StatCard />
+            <h1 className="title shadow">Create Champ Page</h1>
+            <StatCard className="shadow"/>
             <TeamCard />
             <PlayerCard />
             <SaveBtn />
