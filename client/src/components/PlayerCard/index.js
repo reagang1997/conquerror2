@@ -38,9 +38,7 @@ const PlayerCard = () => {
         <Container>
             <br />
             <Row>
-
-                <Col md={5} className="leftDiv shadow" >
-
+                <Col md={5} className="leftDiv shadow" id='appendBlankPlayer'>
 
                     <h1>Players</h1>
                     <br />
