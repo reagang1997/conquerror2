@@ -8,14 +8,14 @@ import SaveBtn from '../../components/SaveBtn';
 
 function CreateChamp() {
     return (
-        <div className="create-container">
+        <div className="container">
+            <br />
             <h1 className="title">Create Champ Page</h1>
-            <h2>Insert some components here</h2>
-            <DemoCard />
-            <SaveBtn />
-            <PlayerCard />
             <StatCard />
             <TeamCard />
+            <PlayerCard />
+            <SaveBtn />
+            <DemoCard />
         </div>
     );
 };

@@ -5,28 +5,55 @@ import './style.css';
 const PlayerCard = () => {
     return (
 
+
         <Container>
             <br />
             <Row>
                 <Col md={5} className="leftDiv">
-                    <h1>Demo name 1</h1>
-                    <Card className="bottomMarg">
-                        <ListGroup variant="flush">
-                            <ListGroup.Item action variant="secondary">Thing to track<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
-                            <ListGroup.Item action variant="secondary">Thing to track<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
-                            <ListGroup.Item action variant="secondary">Thing to track<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
-                            <ListGroup.Item action variant="secondary">Thing to track<Button variant="dark" className="right">delete?</Button></ListGroup.Item>
 
-                        </ListGroup>
-                    </Card>
+                    <h1>Players</h1>
+                    <br />
+                    <InputGroup className="mb-3">
+                        <FormControl
+                            placeholder="Player to Track"
+                            aria-label="Player to Track"
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Append>
+                            <Button variant="outline-info">delete</Button>
+                        </InputGroup.Append>
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                        <FormControl
+                            placeholder="Player to Track"
+                            aria-label="Player to Track"
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Append>
+                            <Button variant="outline-warning">delete</Button>
+                        </InputGroup.Append>
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                        <FormControl
+                            placeholder="Player to Track"
+                            aria-label="Player to Track"
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Append>
+                            <Button variant="outline-secondary">delete</Button>
+                        </InputGroup.Append>
+                    </InputGroup>
+
                 </Col>
 
 
 
                 <Col md={{ span: 5, offset: 2 }} className="rightDiv">
-                    <h1>Demo name 2</h1>
+
+                    <h1>Player Name</h1>
                     <br />
-                    <Button variant="dark" block className="right test">Add Thing</Button>
+                    <Button variant="dark" block className="right test">Add Player</Button>
+
                     <Form className="bottomMarg">
                         <Form.Row>
                             <Col className="my-1">
@@ -59,7 +86,9 @@ const PlayerCard = () => {
 
             <br />
         </Container>
-    );
+
+    )
+
 };
 
 export default PlayerCard;
