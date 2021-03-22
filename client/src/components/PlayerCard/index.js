@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton } from 'react-bootstrap';
 import './style.css';
 
 const PlayerCard = () => {
     return (
+
+
         <Container>
             <br />
             <Row>
                 <Col md={5} className="leftDiv">
+
                     <h1>Players</h1>
                     <br />
                     <InputGroup className="mb-3">
@@ -40,14 +43,17 @@ const PlayerCard = () => {
                             <Button variant="outline-secondary">delete</Button>
                         </InputGroup.Append>
                     </InputGroup>
+
                 </Col>
 
 
 
                 <Col md={{ span: 5, offset: 2 }} className="rightDiv">
+
                     <h1>Player Name</h1>
                     <br />
                     <Button variant="dark" block className="right test">Add Player</Button>
+
                     <Form className="bottomMarg">
                         <Form.Row>
                             <Col className="my-1">
@@ -80,7 +86,9 @@ const PlayerCard = () => {
 
             <br />
         </Container>
+
     )
+
 };
 
 export default PlayerCard;

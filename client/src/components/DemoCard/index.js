@@ -1,5 +1,9 @@
 import React from 'react';
 import './style.css';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/InputGroup';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button'
 
 const DemoCard = () => {
     return (
@@ -8,22 +12,13 @@ const DemoCard = () => {
             <div className="row justify-content-between">
                 <div className="col-5 leftDiv">
                     <h1>Demo Name 1</h1>
-                    <div className="row padThis">
-                        <span className="col-10 trackedThing">Thing to track</span>
-                        <button className="col-2 trackedThing" href="#">delete?</button>
-                    </div>
-                    <div className="row padThis">
-                        <span className="col-10 trackedThing">Thing to track</span>
-                        <button className="col-2 trackedThing" href="#">delete?</button>
-                    </div>
-                    <div className="row padThis">
-                        <span className="col-10 trackedThing">Thing to track</span>
-                        <button className="col-2 trackedThing" href="#">delete?</button>
-                    </div>
-                    <div className="row padThis">
-                        <span className="col-10 trackedThing">Thing to track</span>
-                        <button className="col-2 trackedThing" href="#">delete?</button>
-                    </div>
+                    <ListGroup>
+                            <ListGroup.Item>Cras justo odio<Button variant="danger" className="right">Delete</Button>{''}</ListGroup.Item>
+                            <ListGroup.Item>Dapibus ac facilisis in<Button variant="danger" className="right">Delete</Button>{''}</ListGroup.Item>
+                            <ListGroup.Item>Morbi leo risus<Button variant="danger" className="right">Delete</Button>{''}</ListGroup.Item>
+                            <ListGroup.Item>Porta ac consectetur ac<Button variant="danger" className="right">Delete</Button>{''}</ListGroup.Item>
+                            
+                        </ListGroup>
                 </div>
 
                 <div className="col-5 rightDiv">

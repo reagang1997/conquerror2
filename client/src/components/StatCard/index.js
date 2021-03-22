@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 import InputStat from '../../components/InputStat';
 import './style.css';
+
 
 
 const StatCard = () => {
@@ -47,6 +49,7 @@ const StatCard = () => {
         <Container>
             <br />
             <Row>
+
                 <Col md={5} className="leftDiv" id='appendBlankStat'>
                     <h1>Current Tracking Stats</h1>
                     <br />
@@ -89,6 +92,7 @@ const StatCard = () => {
                     <h1>Stats to Track</h1>
                     <br />
                     <Button variant="dark" block className="right test" onClick={addStat}>Add Stat</Button>
+
                 </Col>
             </Row>
 

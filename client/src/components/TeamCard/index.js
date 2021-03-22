@@ -1,12 +1,13 @@
-import React from 'react';
-import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
-import './style.css';
-
+import React from "react";
+import "./style.css";
+import Button from 'react-bootstrap/Button';
+import { Container, Row, Col, Card, ListGroup, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 
 const TeamCard = () => {
     return (
 
         <Container>
+
             <br />
             <Row>
                 <Col md={5} className="leftDiv">
@@ -95,20 +96,15 @@ const TeamCard = () => {
         //         </input>
 
 
-        //         <li class="list-group-item" id="team">Team Six Name</li>
-
-        //         <input type="text" id="input-team"
-        //             name="fname" placeholder="Team Name">
-        //         </input>
 
 
-        //     </ul>
 
-        //     <button class="button add" type="add" value="Add">Add Another Team</button>
+        </Row>
 
-        //     <button class="button submit" type="submit" value="Search">Search</button>
+        </Container>
 
-        // </div>
+
+
     )
 };
 
