@@ -2,18 +2,14 @@ import React from 'react';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
 
-const InputStat = () => {
+const InputStat = ({name}) => {
     return (
-        <InputGroup className="mb-3">
-            <FormControl
-                placeholder="Stat to Track"
-                aria-label="Stat to Track"
-                aria-describedby="basic-addon2"
-            />
-            <InputGroup.Append>
-                <Button variant="outline-dark">delete</Button>
-            </InputGroup.Append>
-        </InputGroup>
+        <div class='mb-3 input-group'>
+            <h3 aria-descibedby='basic-addon2' class='form-control'>{name}</h3>
+            <div class='input-group-append'>
+                <button type='button' class='btn btn-outline-dark'>delete</button>
+            </div>
+        </div>
     );
 };
 

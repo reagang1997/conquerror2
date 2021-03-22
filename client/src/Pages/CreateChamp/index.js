@@ -49,7 +49,6 @@ function CreateChamp() {
             <PlayerCard />
 
             <SaveBtn />
-            <DemoCard />
         </div>
     );
 };

@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownB
 import './style.css';
 
 const PlayerCard = () => {
-    
+
     let addPlayer = () => {
         console.log('I am being clicked');
 
@@ -28,9 +28,9 @@ const PlayerCard = () => {
 
         let statRow = document.getElementById('appendBlankPlayer');
         statRow.append(outerDiv);
-    
+
     }
-    
+
     return (
 
 
@@ -81,17 +81,36 @@ const PlayerCard = () => {
 
                     <h1>Player Name</h1>
                     <br />
-                    <InputGroup className="mb-3">
+                    <InputGroup>
+                        <FormControl
+                            placeholder="new team name"
+                            aria-label="new team name"
+                            aria-describedby="basic-addon2"
+                        />
+
+                        <DropdownButton
+                            as={InputGroup.Append}
+                            variant="outline-dark"
+                            title="Dropdown"
+                            id="input-group-dropdown-2"
+                        >
+                            <Dropdown.Item href="#">team 1</Dropdown.Item>
+                            <Dropdown.Item href="#">team 2</Dropdown.Item>
+                            <Dropdown.Item href="#">team 3</Dropdown.Item>
+                        </DropdownButton>
+                    </InputGroup>
+                    <br />
+                    {/* <InputGroup className="mb-3">
                         <FormControl
                             placeholder="Team to Track"
                             aria-label="Team to Track"
                             aria-describedby="basic-addon2"
                         />
-                    </InputGroup>
+                    </InputGroup> */}
                     <Button variant="dark" block className="right test"
-                    onClick={addPlayer}>Add Player</Button>
+                        onClick={addPlayer}>Add Player</Button>
 
-                    <Form className="bottomMarg">
+                    {/* <Form className="bottomMarg">
                         <Form.Row>
                             <Col className="my-1">
                                 <Form.Control
@@ -117,7 +136,7 @@ const PlayerCard = () => {
                             <Dropdown.Item href="#/action-2">Team 2</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Team 3</Dropdown.Item>
                         </Dropdown.Menu>
-                    </Dropdown>
+                    </Dropdown> */}
                 </Col>
             </Row>
 
