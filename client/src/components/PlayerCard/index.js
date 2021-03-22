@@ -9,7 +9,7 @@ const PlayerCard = () => {
         <Container>
             <br />
             <Row>
-                <Col md={5} className="leftDiv">
+                <Col md={5} className="leftDiv shadow">
 
                     <h1>Players</h1>
                     <br />
@@ -48,7 +48,7 @@ const PlayerCard = () => {
 
 
 
-                <Col md={{ span: 5, offset: 2 }} className="rightDiv">
+                <Col md={{ span: 5, offset: 2 }} className="rightDiv shadow">
 
                     <h1>Player Name</h1>
                     <br />
