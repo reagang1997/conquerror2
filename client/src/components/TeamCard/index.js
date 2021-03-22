@@ -37,7 +37,7 @@ const TeamCard = () => {
 
             <br />
             <Row>
-                <Col md={5} className="leftDiv" id='appendBlankTeam'>
+                <Col md={5} className="leftDiv shadow">
                     <h1>Teams</h1>
                     <br />
                     <InputGroup className="mb-3">
@@ -75,7 +75,7 @@ const TeamCard = () => {
 
 
 
-                <Col md={{ span: 5, offset: 2 }} className="rightDiv">
+                <Col md={{ span: 5, offset: 2 }} className="rightDiv shadow">
                     <h1>Team Name</h1>
                     <br />
                     <InputGroup className="mb-3">

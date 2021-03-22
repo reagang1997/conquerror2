@@ -50,7 +50,7 @@ const StatCard = () => {
             <br />
             <Row>
 
-                <Col md={5} className="leftDiv" id='appendBlankStat'>
+                <Col md={5} className="leftDiv shadow" id='appendBlankStat'>
                     <h1>Current Tracking Stats</h1>
                     <br />
                     
@@ -59,7 +59,7 @@ const StatCard = () => {
 
 
 
-                <Col md={{ span: 5, offset: 2 }} className="rightDiv">
+                <Col md={{ span: 5, offset: 2 }} className="rightDiv shadow">
                     <h1>Stats to Track</h1>
                     <br />
                     <InputGroup className="mb-3">
