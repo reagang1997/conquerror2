@@ -19,10 +19,7 @@ function CreateChamp() {
         <div className="container">
             <br />
 
-            <h1 className="title">Create Champ Page</h1>
-            <StatCard stats={stats} setStats={setStats} />
-            <TeamCard  teams={teams} setTeams={setTeams}/>
-            <PlayerCard players={players} setPlayers={setPlayers}/>
+          
 
 
             <div>
@@ -45,9 +42,7 @@ function CreateChamp() {
             <StatCard stats={stats} setStats={setStats} className="shadow" />
             <TeamCard  teams={teams} setTeams={setTeams}/>
             <PlayerCard players={players} setPlayers={setPlayers}/>
-            <TeamCard />
-            <PlayerCard />
-
+          
             <SaveBtn />
         </div>
     );
