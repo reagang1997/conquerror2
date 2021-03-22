@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Card, ListGroup, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 import InputStat from "../InputStat";
 
-const TeamCard = ({teams, setTeams}) => {
+const TeamCard = ({ teams, setTeams }) => {
 
     const [tmpTeam, setTmpTeam] = useState({
         name: ""
@@ -24,7 +24,7 @@ const TeamCard = ({teams, setTeams}) => {
                 <Col md={5} className="leftDiv shadow" id='appendBlankTeam'>
                     <h1>Teams</h1>
                     <br />
-                    {teams ? teams.map(team => <InputStat name={team.name}/>) : <div></div>}
+                    {teams ? teams.map(team => <InputStat key={team.name} name={team.name} />) : <div></div>}
 
                 </Col>
 
@@ -39,15 +39,15 @@ const TeamCard = ({teams, setTeams}) => {
                             aria-label="Team to Track"
                             aria-describedby="basic-addon2"
                             value={tmpTeam.name}
-                            onChange={e => setTmpTeam({name: e.target.value})}
+                            onChange={e => setTmpTeam({ name: e.target.value })}
                         />
                     </InputGroup>
                     <Button variant="dark" block className="right test"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setTeams([...teams, tmpTeam]);
-                        setTmpTeam({name: ""});
-                    }}>Add Team</Button>
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setTeams([...teams,tmpTeam]);
+                            setTmpTeam({ name: "" });
+                        }}>Add Team</Button>
                 </Col>
             </Row>
 
