@@ -45,9 +45,6 @@ function CreateChamp() {
             <StatCard stats={stats} setStats={setStats} className="shadow" />
             <TeamCard teams={teams} setTeams={setTeams} />
             <PlayerCard players={players} setPlayers={setPlayers} teams={teams} />
-            <TeamCard />
-            <PlayerCard />
-
             <SaveBtn />
         </div>
     );
