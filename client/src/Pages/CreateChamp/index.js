@@ -15,7 +15,6 @@ function CreateChamp() {
             <TeamCard />
             <PlayerCard />
             <SaveBtn />
-            <DemoCard />
         </div>
     );
 };

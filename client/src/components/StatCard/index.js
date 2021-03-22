@@ -53,36 +53,7 @@ const StatCard = () => {
                 <Col md={5} className="leftDiv" id='appendBlankStat'>
                     <h1>Current Tracking Stats</h1>
                     <br />
-                    <InputGroup className="mb-3">
-                        <FormControl
-                            placeholder="Stat to Track"
-                            aria-label="Stat to Track"
-                            aria-describedby="basic-addon2"
-                        />
-                        <InputGroup.Append>
-                            <Button variant="outline-dark">delete</Button>
-                        </InputGroup.Append>
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                        <FormControl
-                            placeholder="Stat to Track"
-                            aria-label="Stat to Track"
-                            aria-describedby="basic-addon2"
-                        />
-                        <InputGroup.Append>
-                            <Button variant="outline-dark">delete</Button>
-                        </InputGroup.Append>
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                        <FormControl
-                            placeholder="Stat to Track"
-                            aria-label="Stat to Track"
-                            aria-describedby="basic-addon2"
-                        />
-                        <InputGroup.Append>
-                            <Button variant="outline-dark">delete</Button>
-                        </InputGroup.Append>
-                    </InputGroup>
+                    
 
                 </Col>
 
@@ -91,6 +62,14 @@ const StatCard = () => {
                 <Col md={{ span: 5, offset: 2 }} className="rightDiv">
                     <h1>Stats to Track</h1>
                     <br />
+                    <InputGroup className="mb-3">
+                        <FormControl
+                            placeholder="Stat to Track"
+                            aria-label="Stat to Track"
+                            aria-describedby="basic-addon2"
+                        />
+                    </InputGroup>
+
                     <Button variant="dark" block className="right test" onClick={addStat}>Add Stat</Button>
 
                 </Col>

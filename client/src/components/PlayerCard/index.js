@@ -3,13 +3,42 @@ import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownB
 import './style.css';
 
 const PlayerCard = () => {
+    
+    let addPlayer = () => {
+        console.log('I am being clicked');
+
+        const outerDiv = document.createElement('div');
+        outerDiv.setAttribute('class', 'mb-3 input-group');
+        const inputEl = document.createElement('input');
+        inputEl.setAttribute('placeholder', 'Player to track');
+        inputEl.setAttribute('aria-label', 'Player to track');
+        inputEl.setAttribute('aria-describedby', 'basic-addon2');
+        inputEl.setAttribute('class', 'form-control');
+        const innerDiv = document.createElement('div');
+        innerDiv.setAttribute('class', 'input-group-append');
+        const btnEl = document.createElement('button');
+        btnEl.setAttribute('type', 'button');
+        btnEl.setAttribute('class', 'btn btn-outline-dark');
+
+        btnEl.textContent = 'delete';
+
+        outerDiv.appendChild(inputEl);
+        outerDiv.appendChild(innerDiv);
+        innerDiv.appendChild(btnEl);
+
+        let statRow = document.getElementById('appendBlankPlayer');
+        statRow.append(outerDiv);
+    
+    }
+    
     return (
+
 
 
         <Container>
             <br />
             <Row>
-                <Col md={5} className="leftDiv">
+                <Col md={5} className="leftDiv" id='appendBlankPlayer'>
 
                     <h1>Players</h1>
                     <br />
@@ -52,7 +81,15 @@ const PlayerCard = () => {
 
                     <h1>Player Name</h1>
                     <br />
-                    <Button variant="dark" block className="right test">Add Player</Button>
+                    <InputGroup className="mb-3">
+                        <FormControl
+                            placeholder="Team to Track"
+                            aria-label="Team to Track"
+                            aria-describedby="basic-addon2"
+                        />
+                    </InputGroup>
+                    <Button variant="dark" block className="right test"
+                    onClick={addPlayer}>Add Player</Button>
 
                     <Form className="bottomMarg">
                         <Form.Row>
