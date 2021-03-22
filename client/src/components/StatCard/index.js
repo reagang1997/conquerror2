@@ -1,47 +1,28 @@
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 import InputStat from '../../components/InputStat';
 import './style.css';
 
 
 
-const StatCard = () => {
-    let addStat = () => {
+const StatCard = ({stats, setStats}) => {
+
+    const [tmpStat, setTmpStat] = useState({
+        name: ""
+    });
+
+    useEffect(() => {
+        console.log(tmpStat);
+    }, [tmpStat])
+
+    let addStat = (e) => {
+
+        const stat = document.getElementsByClassName('stat');
+
+        console.log(stat);
         console.log('I am being clicked');
-
-        // let blankStat = 
-        // <InputGroup className="mb-3">
-        //     <FormControl
-        //         placeholder="Stat to Track"
-        //         aria-label="Stat to Track"
-        //         aria-describedby="basic-addon2"
-        //     />
-        //     <InputGroup.Append>
-        //         <Button variant="outline-dark">delete</Button>
-        //     </InputGroup.Append>
-        // </InputGroup>;
-        const outerDiv = document.createElement('div');
-        outerDiv.setAttribute('class', 'mb-3 input-group');
-        const inputEl = document.createElement('input');
-        inputEl.setAttribute('placeholder', 'Stat to track');
-        inputEl.setAttribute('aria-label', 'Stat to track');
-        inputEl.setAttribute('aria-describedby', 'basic-addon2');
-        inputEl.setAttribute('class', 'form-control');
-        const innerDiv = document.createElement('div');
-        innerDiv.setAttribute('class', 'input-group-append');
-        const btnEl = document.createElement('button');
-        btnEl.setAttribute('type', 'button');
-        btnEl.setAttribute('class', 'btn btn-outline-dark');
-
-        btnEl.textContent = 'delete';
-
-        outerDiv.appendChild(inputEl);
-        outerDiv.appendChild(innerDiv);
-        innerDiv.appendChild(btnEl);
-
-        let statRow = document.getElementById('appendBlankStat');
-        statRow.append(outerDiv);
+    
     }
 
 
@@ -63,14 +44,25 @@ const StatCard = () => {
                     <h1>Stats to Track</h1>
                     <br />
                     <InputGroup className="mb-3">
-                        <FormControl
+                        <FormControl className='stat'
+                        id='stat'
                             placeholder="Stat to Track"
                             aria-label="Stat to Track"
                             aria-describedby="basic-addon2"
+                            value={tmpStat.name}
+                            onChange={e => setTmpStat({name: e.target.value})}
                         />
                     </InputGroup>
 
-                    <Button variant="dark" block className="right test" onClick={addStat}>Add Stat</Button>
+                    <Button variant="dark" block className="right test" onClick={(e) => 
+                    {   
+                        e.preventDefault();
+                        setStats([...stats, tmpStat]);
+                        setTmpStat({name: ""});
+                        console.log(stats);
+                        console.log(tmpStat);
+                        document.getElementById('stat').value = "";
+                        }}>Add Stat</Button>
 
                 </Col>
             </Row>
