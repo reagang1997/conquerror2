@@ -13,14 +13,14 @@ const StatCard = ({stats, setStats}) => {
     });
 
     useEffect(() => {
-        console.log(tmpStat);
+        // console.log(tmpStat);
     }, [tmpStat])
 
     let addStat = (e) => {
 
         const stat = document.getElementsByClassName('stat');
 
-        console.log(stat);
+        // console.log(stat);
         console.log('I am being clicked');
     
     }
@@ -63,8 +63,8 @@ const StatCard = ({stats, setStats}) => {
                         e.preventDefault();
                         setStats([...stats, tmpStat]);
                         setTmpStat({name: ""});
-                        console.log(stats);
-                        console.log(tmpStat);
+                        // console.log(stats);
+                        // console.log(tmpStat);
                         document.getElementById('stat').value = "";
                         }}>Add Stat</Button>
 
