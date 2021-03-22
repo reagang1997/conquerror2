@@ -31,7 +31,7 @@ const InputStat = ({name, flag, stats, players, teams, setStats, setPlayers, set
         <div className='mb-3 input-group'>
             <h3 className='form-control' id={name}>{name}</h3>
             <div className='input-group-append'>
-                <button type='button' className='btn btn-outline-dark' onClick={deleteItem}>delete</button>
+                <button type='button' className='btn btn-outline-danger' onClick={deleteItem}>delete</button>
             </div>
         </div>
     );
