@@ -40,12 +40,12 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className="container">
 
 
             <div className="row">
 
-                <div className="col-7 jumbotron">
+                <div className="col-6 jumbotron" id="adjJumbo">
                     <h1 className="display-4 center">Welcome to Conquerror!</h1>
                     <div className="container example">
                         <img src="https://via.placeholder.com/400" alt="gif of making champ" className="exampleImg" />
@@ -53,16 +53,16 @@ function Home() {
 
                 </div>
 
-                <div className="col-3 ">
+                <div className="col-4 ">
                     <div className="row">
-                        <div className="col jumbotron">
+                        <div className="col jumbotron" id="adjJumbo">
                             <div className="row justify-content-center text">
                                 <h1 className="display-4">Search</h1>
                             </div>
                             <div className='center' >
                                 <Search className='center' />
                                 <div className='button'>
-                                <button className="btn" >Search</button>
+                                <button className="btn btn-dark" id="hmBtn">Search</button>
                                 </div>
                             </div>
                             <div className="row justify-content-center text">
@@ -78,7 +78,7 @@ function Home() {
                                 <input placeholder='password' type='password' onChange={(e) => setUser({ ...user, password: e.target.value })}></input>
                             </div>
                             <div className="row justify-content-center">
-                                <button className="btn" onClick={createUser}>Login</button>
+                                <button className="btn btn-dark" onClick={createUser}>Login</button>
                                 {user.stats === 200 ? <Redirect to='/adminHome' /> : console.log('not logged in')}
                             </div>
                         </div>
