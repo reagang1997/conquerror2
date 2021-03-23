@@ -39,7 +39,7 @@ function AddResults() {
             <NewResults players={players} index={index} />
             {/* <ResultsCard /> */}
             <br />
-            <PrevNxt index={index} setIndex={setIndex} />
+            <PrevNxt index={index} setIndex={setIndex} players={players}/>
             {/* <SaveBtn /> */}
         </div>
     );
