@@ -72,6 +72,9 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
                                 {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
                                 
                             </Form.Control>
+
+                            <Form.Check type='radio' label='lowest to highest'/>
+                            <Form.Check type='radio' label='highest to lowest'/>
                         </Form.Group>
 
                     </InputGroup>
