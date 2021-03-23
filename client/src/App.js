@@ -11,7 +11,7 @@ function App() {
       <NavTabs/>
       <Route exact path="/" component={Home} />
       <Route exact path="/adminHome" component={AdminLand} />
-      <Route exact path='/createChampionship' component={CreateChamp} />
+      <Route  path='/createChampionship' component={CreateChamp} />
       <Route exact path='/addResults' component={AddResults} />
       
     </Router>
