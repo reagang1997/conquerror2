@@ -43,7 +43,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
-            Key Stat will be the stat your championship will be based off of.
+            Key Stat is the stat your championship will be based off of.
         </Tooltip>
     );
 
@@ -110,8 +110,8 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                     </Form.Group>
 
                     <Form>
-                        <Form.Check type='radio' label='highest to lowest'/>
-                        <Form.Check type='radio' label='lowest to highest'/>
+                        <Form.Check inline type='checkbox' label='highest to lowest'/>
+                        <Form.Check inline type='checkbox' label='lowest to highest'/>
                     </Form>
                     <br />
 
