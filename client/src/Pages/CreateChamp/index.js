@@ -47,10 +47,6 @@ function CreateChamp() {
                 </h1>
                 
             </div>
-
-
-
-
             <StatCard stats={stats} setStats={setStats} className="shadow" />
 
             <TeamCard teams={teams} setTeams={setTeams} />
