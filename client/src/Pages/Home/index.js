@@ -43,7 +43,7 @@ function Home() {
         <div>
 
 
-            <div className="row">
+            <div className="row example">
 
                 <div className="col-7 jumbotron">
                     <h1 className="display-4 center">Welcome to Conquerror!</h1>
