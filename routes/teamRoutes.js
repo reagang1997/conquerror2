@@ -13,4 +13,12 @@ router.post('/api/createTeam/:champID', async (req, res) => {
     res.send(newTeam);
 });
 
+router.get('/api/teamByName/:teamName', async (req, res) => {
+    const team = req.params.teamName;
+    console.log(team);
+    const foundTeam = await Team.findOne({teamName: team});
+    console.log(foundTeam);
+    res.send(foundTeam);
+})
+
 module.exports = router;

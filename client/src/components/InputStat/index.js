@@ -19,11 +19,21 @@ const InputStat = ({name, flag, stats, players, teams, setStats, setPlayers, set
         } 
         else if (flag === 'team'){
             // look through teams array and spice out traget
-
+            const spliced = teams.map((team => {
+                if(team.name !== target){
+                    return(team)
+                } 
+            }))
+            setTeams(spliced);
         }
         else{
-            // look through palyers array and spice out traget
-
+            // look through players array and spice out traget
+            const spliced = players.map((player => {
+                if(player.name !== target){
+                    return(player)
+                } 
+            }))
+            setPlayers(spliced);
         }
     }
 
@@ -31,7 +41,7 @@ const InputStat = ({name, flag, stats, players, teams, setStats, setPlayers, set
         <div className='mb-3 input-group'>
             <h3 className='form-control' id={name}>{name}</h3>
             <div className='input-group-append'>
-                <button type='button' className='btn btn-outline-dark' onClick={deleteItem}>delete</button>
+                <button type='button' className='btn btn-outline-danger' onClick={deleteItem}>delete</button>
             </div>
         </div>
     );

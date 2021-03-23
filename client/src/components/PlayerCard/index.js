@@ -1,15 +1,35 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 import InputStat from '../InputStat';
+import axios from 'axios';
 import './style.css';
 
-const PlayerCard = ({teams, players, setPlayers}) => {
+const PlayerCard = ({ teams, players, setPlayers }) => {
 
     const [tmpPlayer, setTmpPlayer] = useState({
-        name: ""
+        playerName: "",
+        team: ""
     })
 
-    const [teamID, setTeamID] = useState('');
+    const [champ, setChamp] = useState('');
+
+    useEffect(() => {
+        // console.log(tmpStat);
+        getChampID();
+    }, [tmpPlayer])
+
+    const getChampID = () => {
+        let url = window.location.href;
+        url = url.split('/');
+        console.log('url: ', url)
+        if (url.length !== 6) {
+            url = window.location.href;
+            url = url.split('/');
+            setChamp(url[url.length - 1])
+
+        }
+    }
+
 
     return (
 
@@ -20,7 +40,7 @@ const PlayerCard = ({teams, players, setPlayers}) => {
 
                     <h1>Players</h1>
                     <br />
-                    {players ? players.map(player => <InputStat name={player.name}/>) : <div></div> }
+                    {players ? players.map(player => <InputStat name={player.playerName} />) : <div></div>}
 
                 </Col>
 
@@ -32,35 +52,38 @@ const PlayerCard = ({teams, players, setPlayers}) => {
                     <br />
                     <InputGroup>
                         <FormControl
-                            placeholder="new team name"
-                            aria-label="new team name"
+                            placeholder="new player name"
+                            aria-label="new player name"
                             aria-describedby="basic-addon2"
                             value={tmpPlayer.name}
-                            onChange={e => setTmpPlayer({ name: e.target.value })}
+                            onChange={e => setTmpPlayer({...tmpPlayer,  playerName: e.target.value })}
                         />
 
-                        <DropdownButton
-                            as={InputGroup.Append}
-                            variant="outline-dark"
-                            title="Dropdown"
-                            id="input-group-dropdown-2"
-                            onSelect={(e) => {
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Control as="select" onChange={async (e) => {
+                                    const teamName = e.target.value;
+                                    console.log(teamName);
+                                    let id = await axios.get(`/api/teamByName/${teamName}`);
+                                    id = id.data._id;
+                                    setTmpPlayer({...tmpPlayer, team: id});
+
+                                }}>
+                                <option>Select a Team</option>
+                                {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
                                 
-                            }}
-                        >
-                            {teams ? teams.map(team => <Dropdown.Item href="#" onClick={(e) => {
-                                const teamName = e.target.textContent;
-}}>{team.teamName}</Dropdown.Item>) : console.log('no teams')}
-                        </DropdownButton>
+                            </Form.Control>
+                        </Form.Group>
+
                     </InputGroup>
                     <br />
-                   
+
                     <Button variant="dark" block className="right test"
-                    onClick={e => {
-                        e.preventDefault();
-                        setPlayers([...players, tmpPlayer]);
-                        setTmpPlayer({name: ""});
-                    }}>Add Player</Button>
+                        onClick={async (e) => {
+                            e.preventDefault();
+                            const newPlayer = await axios.post(`/api/createPlayer/${tmpPlayer.team}/${champ}`, tmpPlayer)
+                            setPlayers([...players, tmpPlayer]);
+                            setTmpPlayer({ ...tmpPlayer ,playerName: "" });
+                        }}>Add Player</Button>
 
                 </Col>
             </Row>

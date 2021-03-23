@@ -14,27 +14,25 @@ function AdminLand() {
         id: ''
     });
 
-    const [champ, setChamp] = useState('');
+
+    const [champs, setChamps] = useState([]);
 
     useEffect(() => {
         getUser();
     }, [])
 
-    const getUser = () => {
-        axios.get('/api/user')
-            .then(tmpuser => {
-                tmpuser = tmpuser.data;
-                // setUser({ id: tmpuser._id });
-                // console.log(user);
+    const getUser = async () => {
+        const user = await axios.get('/api/user');
 
-                axios.get(`/api/userChamps/${tmpuser._id}`)
-                    .then(tmpchamp => {
-                        tmpchamp = tmpchamp.data[0].champName
-                        console.log(tmpchamp);
-                        setChamp(tmpchamp)
-                        console.log(champ)
-                    })
-            })
+        const userChamps = await axios.get(`/api/userChamps/${user.data._id}`);
+
+        setChamps(userChamps.data)
+        // userChamps.data.forEach(champ => {
+        //     setChamps({...champs, champ});
+        //     console.log(champ);
+        // })
+
+        console.log(champs);
 
 
     }
@@ -42,7 +40,11 @@ function AdminLand() {
     return (
         <div>
             <br/>
-            <Champ champName={champ} />
+
+            {champs.map(c => {
+                return <Champ champName={c.champName}/>
+            })}
+            {/* <Champ champName={champ} /> */}
             <AddChampBtn />
         </div>
     );
