@@ -56,27 +56,22 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
                             aria-label="new player name"
                             aria-describedby="basic-addon2"
                             value={tmpPlayer.name}
-                            onChange={e => setTmpPlayer({...tmpPlayer,  playerName: e.target.value })}
+                            onChange={e => setTmpPlayer({ ...tmpPlayer, playerName: e.target.value })}
                         />
 
                         <Form.Group controlId="exampleForm.ControlSelect1">
                             <Form.Control as="select" onChange={async (e) => {
-                                    const teamName = e.target.value;
-                                    console.log(teamName);
-                                    let id = await axios.get(`/api/teamByName/${teamName}`);
-                                    id = id.data._id;
-                                    setTmpPlayer({...tmpPlayer, team: id});
+                                const teamName = e.target.value;
+                                console.log(teamName);
+                                let id = await axios.get(`/api/teamByName/${teamName}`);
+                                id = id.data._id;
+                                setTmpPlayer({ ...tmpPlayer, team: id });
 
-                                }}>
+                            }}>
                                 <option>Select a Stat</option>
                                 {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
-                                
                             </Form.Control>
-
-                            <Form.Check type='radio' label='lowest to highest'/>
-                            <Form.Check type='radio' label='highest to lowest'/>
                         </Form.Group>
-
                     </InputGroup>
                     <br />
 
@@ -85,7 +80,7 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
                             e.preventDefault();
                             const newPlayer = await axios.post(`/api/createPlayer/${tmpPlayer.team}/${champ}`, tmpPlayer)
                             setPlayers([...players, tmpPlayer]);
-                            setTmpPlayer({ ...tmpPlayer ,playerName: "" });
+                            setTmpPlayer({ ...tmpPlayer, playerName: "" });
                         }}>Add Player</Button>
 
                 </Col>
