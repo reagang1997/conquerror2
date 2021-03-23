@@ -26,7 +26,7 @@ router.post('/api/createChamp', async (req, res) => {
 router.put('/api/updateChampName', async (req, res) => {
     let name = req.body;
     name = name.name;
-    const updated = await Champ.findOneAndUpdate({ champName: 'xxxxxxxxxxxxxxxxxxxxxxxx'}, { $set: { champName: name } }, {new: true});
+    const updated = await Champ.findOneAndUpdate({ champName: 'xxxxxxxxxxxxxxxxxxxxxxxx' }, { $set: { champName: name } }, { new: true });
     res.send(updated);
 })
 
@@ -40,6 +40,12 @@ router.get('/api/tmpChamp', async (req, res) => {
     console.log('hit tmpChamp');
     const tmpChamp = await Champ.findOne({ champName: 'xxxxxxxxxxxxxxxxxxxxxxxx' });
     res.send(tmpChamp);
+})
+
+router.get('/api/champ/:champID', async (req, res) => {
+    const foundChamp = await Champ.findOne({ _id: req.params.champID }).populate('players');
+    res.send(foundChamp);
+
 })
 
 router.put('/api/generateDemoChamp', async (req, res) => {

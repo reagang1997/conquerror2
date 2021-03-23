@@ -5,15 +5,22 @@ import './style.css';
 import axios from 'axios';
 
 
-const ChampChoice = ({champName}) => {
+const ChampChoice = ({champName, id}) => {
 
     const history = useHistory();
+
+    const [champID, setChampID] = useState('');
+
+    const handleClick = (e) => {
+        history.push(`/addResults/${e.target.id}`);
+    }
+
 
     return (
         <div className="container">
             <div className="row champDiv">
                 <span className="col-8 champName">{champName}</span>
-                <button className="col-2 resultLink" href="#" onClick={(e) => {history.push('/addResults')}}>Add Results</button>
+                <button className="col-2 resultLink" href="#" id={id} onClick={handleClick}>Add Results</button>
                 <button className="col-2 editLink" href="#">Edit</button>
             </div>
         </div>

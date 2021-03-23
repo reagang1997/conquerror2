@@ -5,6 +5,7 @@ import AddChampBtn from '../../components/AddChampBtn';
 import axios from 'axios';
 import DemoCard from '../../components/DemoCard';
 import NewDemoCard from '../../components/NewDemoCardlol';
+import ResultsCard from '../../components/ResultsCard';
 
 function AdminLand() {
 
@@ -42,7 +43,7 @@ function AdminLand() {
             <br/>
 
             {champs.map(c => {
-                return <Champ champName={c.champName}/>
+                return <Champ champName={c.champName} id={c._id}/>
             })}
             {/* <Champ champName={champ} /> */}
             <AddChampBtn />

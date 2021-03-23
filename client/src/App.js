@@ -12,7 +12,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route exact path="/adminHome" component={AdminLand} />
       <Route  path='/createChampionship' component={CreateChamp} />
-      <Route exact path='/addResults' component={AddResults} />
+      <Route  path='/addResults' component={AddResults} />
       
     </Router>
   );
