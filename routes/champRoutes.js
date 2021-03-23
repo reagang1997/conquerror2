@@ -37,6 +37,7 @@ router.get('/api/allChamp', async (req, res) => {
 })
 
 router.get('/api/tmpChamp', async (req, res) => {
+    console.log('hit tmpChamp');
     const tmpChamp = await Champ.findOne({ champName: 'xxxxxxxxxxxxxxxxxxxxxxxx' });
     res.send(tmpChamp);
 })

@@ -1,5 +1,6 @@
 
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 import InputStat from '../../components/InputStat';
 import './style.css';
@@ -12,9 +13,24 @@ const StatCard = ({stats, players, teams, setStats, setPlayers, setTeams}) => {
         name: ""
     });
 
+    const [champ, setChamp] = useState('');
+
     useEffect(() => {
         // console.log(tmpStat);
+        getChampID();
     }, [tmpStat])
+
+    const getChampID = () => {
+        let url = window.location.href;
+        url = url.split('/');
+        console.log('url: ', url)
+        if (url.length !== 6) {
+            url = window.location.href;
+            url = url.split('/');
+            setChamp(url[url.length - 1])
+
+        }
+    }
 
     let addStat = (e) => {
 
@@ -64,9 +80,11 @@ const StatCard = ({stats, players, teams, setStats, setPlayers, setTeams}) => {
                         />
                     </InputGroup>
 
-                    <Button variant="dark" block className="right test" onClick={(e) => 
+                    <Button variant="dark" block className="right test" onClick={ async (e) => 
                     {   
                         e.preventDefault();
+                        console.log(champ);
+                        const newStat = axios.post(`/api/createStat/${champ}` , tmpStat);
                         setStats([...stats, tmpStat]);
                         setTmpStat({name: ""});
                         // console.log(stats);
