@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Player = require('../models/Player');
 
-router.post('/api/createPlayer', async (req, res) => {
+router.post('/api/createPlayer/:teamID', async (req, res) => {
     const player = req.body;
     console.log(player);
     const newPlayer = await Player.create(player);

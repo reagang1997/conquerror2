@@ -9,6 +9,8 @@ const PlayerCard = ({teams, players, setPlayers}) => {
         name: ""
     })
 
+    const [teamID, setTeamID] = useState('');
+
     return (
 
         <Container>
@@ -42,8 +44,13 @@ const PlayerCard = ({teams, players, setPlayers}) => {
                             variant="outline-dark"
                             title="Dropdown"
                             id="input-group-dropdown-2"
+                            onSelect={(e) => {
+                                
+                            }}
                         >
-                            {teams ? teams.map(team => <Dropdown.Item href="#">{team.name}</Dropdown.Item>) : console.log('no teams')}
+                            {teams ? teams.map(team => <Dropdown.Item href="#" onClick={(e) => {
+                                const teamName = e.target.textContent;
+}}>{team.teamName}</Dropdown.Item>) : console.log('no teams')}
                         </DropdownButton>
                     </InputGroup>
                     <br />
