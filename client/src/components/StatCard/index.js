@@ -1,13 +1,13 @@
 
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton, InputGroup, FormControl, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import InputStat from '../../components/InputStat';
 import './style.css';
 
 
 
-const StatCard = ({stats, players, teams, setStats, setPlayers, setTeams}) => {
+const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => {
 
     const [tmpStat, setTmpStat] = useState({
         name: ""
@@ -38,8 +38,14 @@ const StatCard = ({stats, players, teams, setStats, setPlayers, setTeams}) => {
 
         // console.log(stat);
         console.log('I am being clicked');
-    
+
     }
+
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Key Stat will be the stat your championship will be based off of.
+        </Tooltip>
+    );
 
 
     return (
@@ -51,14 +57,14 @@ const StatCard = ({stats, players, teams, setStats, setPlayers, setTeams}) => {
                     <h1>Current Tracking Stats</h1>
                     <br />
                     {stats.map(stat => {
-                        return(
+                        return (
                             <InputStat name={stat.name} flag='stat'
-                            stats={stats}
-                            teams={teams}
-                            players={players}
-                            setStats={setStats}
-                            setPlayers={setPlayers}
-                            setTeams={setTeams}/>
+                                stats={stats}
+                                teams={teams}
+                                players={players}
+                                setStats={setStats}
+                                setPlayers={setPlayers}
+                                setTeams={setTeams} />
                         );
                     })}
 
@@ -71,26 +77,54 @@ const StatCard = ({stats, players, teams, setStats, setPlayers, setTeams}) => {
                     <br />
                     <InputGroup className="mb-3">
                         <FormControl className='stat'
-                        id='stat'
+                            id='stat'
                             placeholder="Stat to Track"
                             aria-label="Stat to Track"
                             aria-describedby="basic-addon2"
                             value={tmpStat.name}
-                            onChange={e => setTmpStat({name: e.target.value})}
+                            onChange={e => setTmpStat({ name: e.target.value })}
                         />
                     </InputGroup>
 
-                    <Button variant="dark" block className="right test" onClick={ async (e) => 
-                    {   
+                    <Form.Group as={Row} controlId="formHorizontalEmail">
+                        <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
+                            <Form.Label column sm={3}>
+                                Key Stat:
+                            </Form.Label>
+                        </OverlayTrigger>
+                        <Col sm={9}>
+                            <Form.Group controlId="exampleForm.ControlSelect1">
+                                <Form.Control as="select" onChange={async (e) => {
+                                    const teamName = e.target.value;
+                                    console.log(teamName);
+                                    let id = await axios.get(`/api/teamByName/${teamName}`);
+                                    id = id.data._id;
+
+                                }}>
+                                    <option>Select a Team</option>
+                                    {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
+
+                                </Form.Control>
+                            </Form.Group>
+                        </Col>
+                    </Form.Group>
+
+                    <Form>
+                        <Form.Check type='radio' label='highest to lowest'/>
+                        <Form.Check type='radio' label='lowest to highest'/>
+                    </Form>
+                    <br />
+
+                    <Button variant="dark" block className="right test" onClick={async (e) => {
                         e.preventDefault();
                         console.log(champ);
-                        const newStat = axios.post(`/api/createStat/${champ}` , tmpStat);
+                        const newStat = axios.post(`/api/createStat/${champ}`, tmpStat);
                         setStats([...stats, tmpStat]);
-                        setTmpStat({name: ""});
+                        setTmpStat({ name: "" });
                         // console.log(stats);
                         // console.log(tmpStat);
                         document.getElementById('stat').value = "";
-                        }}>Add Stat</Button>
+                    }}>Add Stat</Button>
 
                 </Col>
             </Row>
