@@ -9,6 +9,10 @@
 }
 
 button {
-    border: none;
+    border: solid;
     background-color: lightgray;
+}
+
+.addChampBtn {
+
 }

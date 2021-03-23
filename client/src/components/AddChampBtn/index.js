@@ -58,7 +58,7 @@ const NewChampBtn = () => {
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-4 newChamp">
-                    <button className="addChampBtn" onClick={() => createChamp()}>Add New Champ</button>
+                    <button className="btn btn-dark addChampBtn" onClick={() => createChamp()}>Add New Champ</button>
                 </div>
             </div>
         </div>
