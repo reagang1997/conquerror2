@@ -22,18 +22,20 @@ function CreateChamp() {
 
     const [champ, setChamp] = useState({ name: '' });
 
-    const [champID, setChampID] = useState('');
+    const [champID, setChampID] = useState("");
 
 
 
     useEffect(() => {
         let url = window.location.href;
         url = url.split('/');
-        if (url.length !== 5) {
+        console.log('url: ', url)
+        if (url.length !== 6) {
             getTmpChamp();
-        }
-        else{
+            url = window.location.href;
+            url = url.split('/');
             setChampID(url[url.length - 1])
+
         }
     }, [teams])
 
@@ -43,7 +45,7 @@ function CreateChamp() {
         history.push(`/createChampionship/${tmpChamp.data._id}`)
     }
 
-    
+
 
     return (
         <div className="container">
@@ -70,7 +72,11 @@ function CreateChamp() {
                 </h1>
 
             </div>
-            <StatCard stats={stats} setStats={setStats} className="shadow" />
+
+
+
+
+            <StatCard stats={stats} setStats={setStats} champID={champID} className="shadow" />
 
             <TeamCard teams={teams} setTeams={setTeams} />
             <PlayerCard players={players} setPlayers={setPlayers} teams={teams} />

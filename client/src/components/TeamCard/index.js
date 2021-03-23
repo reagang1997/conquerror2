@@ -3,17 +3,33 @@ import "./style.css";
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Card, ListGroup, Form, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap';
 import InputStat from "../InputStat";
+import axios from "axios";
 
 const TeamCard = ({ teams, setTeams }) => {
 
     const [tmpTeam, setTmpTeam] = useState({
-        name: ""
+        teamName: ""
     });
 
-    useEffect(() => {
-        console.log(teams);
-    }, [tmpTeam]);
+    const [champ, setChamp] = useState('');
 
+
+    useEffect(() => {
+        // console.log(tmpStat);
+        getChampID();
+    }, [tmpTeam])
+
+    const getChampID = () => {
+        let url = window.location.href;
+        url = url.split('/');
+        console.log('url: ', url)
+        if (url.length !== 6) {
+            url = window.location.href;
+            url = url.split('/');
+            setChamp(url[url.length - 1])
+
+        }
+    }
 
     return (
 
@@ -24,7 +40,7 @@ const TeamCard = ({ teams, setTeams }) => {
                 <Col md={5} className="leftDiv shadow" id='appendBlankTeam'>
                     <h1>Teams</h1>
                     <br />
-                    {teams ? teams.map(team => <InputStat key={team.name} name={team.name} />) : <div></div>}
+                    {teams ? teams.map(team => <InputStat key={team.teamName} name={team.teamName} />) : <div></div>}
 
                 </Col>
 
@@ -38,15 +54,18 @@ const TeamCard = ({ teams, setTeams }) => {
                             placeholder="Team to Track"
                             aria-label="Team to Track"
                             aria-describedby="basic-addon2"
-                            value={tmpTeam.name}
-                            onChange={e => setTmpTeam({ name: e.target.value })}
+                            value={tmpTeam.teamName}
+                            onChange={e => setTmpTeam({ teamName: e.target.value })}
                         />
                     </InputGroup>
                     <Button variant="dark" block className="right test"
-                        onClick={(e) => {
+                        onClick={async (e) => {
                             e.preventDefault();
+
+                            const newTeam = await axios.post(`/api/createTeam/${champ}`, tmpTeam);
+
                             setTeams([...teams,tmpTeam]);
-                            setTmpTeam({ name: "" });
+                            setTmpTeam({ teamName: "" });
                         }}>Add Team</Button>
                 </Col>
             </Row>
