@@ -47,19 +47,25 @@ function Home() {
 
                 <div className="col-7 jumbotron">
                     <h1 className="display-4 center">Welcome to Conquerror!</h1>
-                    <img src="https://via.placeholder.com/400" alt="gif of making champ" className=""/>
-                    <div className='center' >
-                        <Search className='center' />
-                        <div className='button'>
-                            <Button>Search</Button>
-                        </div>
+                    <div className="container example">
+                        <img src="https://via.placeholder.com/400" alt="gif of making champ" className="exampleImg" />
                     </div>
+
                 </div>
 
                 <div className="col-3 ">
                     <div className="row">
                         <div className="col jumbotron">
-                            <div className="row justify-content-center">
+                            <div className="row justify-content-center text">
+                                <h1 className="display-4">Search</h1>
+                            </div>
+                            <div className='center' >
+                                <Search className='center' />
+                                <div className='button'>
+                                <button className="btn" >Search</button>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center text">
                                 <h1 className="display-4">Sign Up</h1>
                             </div>
                             <div className="row justify-content-center">
@@ -79,7 +85,7 @@ function Home() {
                     </div>
                     <div className="row">
                         <div className="col">
-                            
+
                         </div>
 
                     </div>

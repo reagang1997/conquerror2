@@ -19,11 +19,21 @@ const InputStat = ({name, flag, stats, players, teams, setStats, setPlayers, set
         } 
         else if (flag === 'team'){
             // look through teams array and spice out traget
-
+            const spliced = teams.map((team => {
+                if(team.name !== target){
+                    return(team)
+                } 
+            }))
+            setTeams(spliced);
         }
         else{
-            // look through palyers array and spice out traget
-
+            // look through players array and spice out traget
+            const spliced = players.map((player => {
+                if(player.name !== target){
+                    return(player)
+                } 
+            }))
+            setPlayers(spliced);
         }
     }
 

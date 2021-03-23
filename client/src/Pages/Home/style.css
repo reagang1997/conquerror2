@@ -4,8 +4,7 @@
 
 .center{
     margin: auto;
-    width: 500px;
-    margin-top: 50px;
+    width: 300px;
     text-align: center;
 }
 
@@ -28,4 +27,18 @@
     width: 200px;
     margin-right: 25px;
 
+}
+
+.example {
+    display: flex;
+    justify-content: center;
+}
+
+.exampleImg {
+    margin-top: 30px;
+}
+
+.text {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
