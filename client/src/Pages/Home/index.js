@@ -15,7 +15,7 @@ import NewDemoCard from '../../components/NewDemoCardlol';
 
 
 
-function Home({search, setSearch}) {
+function Home({ search, setSearch }) {
 
     const history = useHistory();
 
@@ -60,11 +60,11 @@ function Home({search, setSearch}) {
                             <div className="row justify-content-center text">
                                 <h1 className="display-4">Search</h1>
                             </div>
-                            <div className='center' >
-                                <Search className='center' search={search} setSearch={setSearch}/>
-                                <div className='button'>
-                                <button className="btn btn-dark" id="hmBtn" onClick={(e) => {history.push('/searchResults'); console.log(search)}}>Search</button>
-                                </div>
+                            <div className='row justify-content-center' >
+                                <Search className='center' search={search} setSearch={setSearch} />
+                            </div>
+                            <div className='row justify-content-center'>
+                                <button className="btn btn-dark" id="hmBtn" onClick={(e) => { history.push('/searchResults'); console.log(search) }}>Search</button>
                             </div>
                             <div className="row justify-content-center text">
                                 <h1 className="display-4">Sign Up</h1>
