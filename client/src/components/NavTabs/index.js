@@ -5,7 +5,7 @@ import Login from '../Login';
 import "./style.css"
 
 
-function NavTabs() {
+function NavTabs({ isLoggedIn, setLoggedIn}) {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -19,7 +19,7 @@ function NavTabs() {
                     <li className="nav-item">
                     </li>
                     <li className="nav-item">
-                        <Login></Login>
+                        {isLoggedIn ? <div></div> : <Login setLoggedIn={setLoggedIn}></Login>}
                     </li>
                     <li className="nav-item">
 

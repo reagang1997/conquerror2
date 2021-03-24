@@ -12,11 +12,13 @@ function App() {
   const [search, setSearch] = useState({ champName: '' });
 
   const [champID, setChampID] = useState('');
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
   return (
     <Router>
-      <NavTabs />
+      <NavTabs isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>
       <Route exact path="/">
-        <Home search={search} setSearch={setSearch} />
+        <Home search={search} setSearch={setSearch} isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       </Route>
       <Route exact path="/adminHome" component={AdminLand} />
       <Route path='/createChampionship' component={CreateChamp} />
