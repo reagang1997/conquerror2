@@ -47,7 +47,6 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
         </Tooltip>
     );
 
-
     return (
         <Container>
             <br />
@@ -110,8 +109,8 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                     </Form.Group>
 
                     <Form>
-                        <Form.Check inline type='checkbox' label='highest to lowest'/>
-                        <Form.Check inline type='checkbox' label='lowest to highest'/>
+                        <Form.Check inline type='radio' name="group1" id="Check1" value="highest to lowest" label='highest to lowest'/>
+                        <Form.Check inline type='radio' name="group1" id="Check2" value="lowest to highest" label='lowest to highest'/>
                     </Form>
                     <br />
 
