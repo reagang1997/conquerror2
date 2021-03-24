@@ -14,6 +14,12 @@ router.put('/api/addAdmin/:adminID/xxxxxxxxxxxxxxxxxxxxxxxx', async (req, res) =
 
 })
 
+router.get('/api/champs/:champName', async (req, res) => {
+    const foundChamps = await Champ.find({champName: {$regex: req.params.champName}})
+    res.send(foundChamps);
+    
+})
+
 router.post('/api/createChamp', async (req, res) => {
     const champ = req.body;
     console.log(champ);
