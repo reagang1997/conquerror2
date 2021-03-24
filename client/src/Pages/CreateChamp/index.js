@@ -24,6 +24,8 @@ function CreateChamp() {
 
     const [champID, setChampID] = useState("");
 
+    const [renderCount, setRenderCount] = useState(0);
+
 
 
     useEffect(() => {
@@ -40,10 +42,14 @@ function CreateChamp() {
     }, [teams])
 
     const getTmpChamp = async () => {
-        const tmpChamp = await axios.get('/api/tmpChamp');
-        console.log(tmpChamp.data)
-        const tmpPlayers = await axios.get(`/api/tmpChamp/${tmpChamp.data._id}/players`)
-        history.push(`/createChampionship/${tmpChamp.data._id}`)
+        if(renderCount === 0){
+            const tmpChamp = await axios.get('/api/tmpChamp');
+            console.log(tmpChamp.data)
+            const tmpPlayers = await axios.get(`/api/tmpChamp/${tmpChamp.data._id}/players`)
+            history.push(`/createChampionship/${tmpChamp.data._id}`)
+        }
+        setRenderCount(renderCount + 1);
+        
     }
 
 
