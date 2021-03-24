@@ -46,15 +46,15 @@ function Home({ search, setSearch }) {
 
             <div className="row example">
 
-                <div className="col-6 jumbotron" id="adjJumbo">
+                <div className="col-md-6 jumbotron" id="adjJumbo">
                     <h1 className="display-4 center">Welcome to Conquerror!</h1>
                     <div className="container example">
-                        <img src="https://via.placeholder.com/400" alt="gif of making champ" className="exampleImg" />
+                        <img src="https://via.placeholder.com/300" alt="gif of making champ" className="exampleImg" />
                     </div>
 
                 </div>
 
-                <div className="col-4 ">
+                <div className="col-md-4 ">
                     <div className="row">
                         <div className="col jumbotron" id="adjJumbo">
                             <div className="row justify-content-center text">
