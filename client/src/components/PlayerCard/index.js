@@ -68,7 +68,9 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
                                 setTmpPlayer({ ...tmpPlayer, team: id });
 
                             }}>
+
                                 <option>Select Player's Team</option>
+
                                 {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
                             </Form.Control>
                         </Form.Group>

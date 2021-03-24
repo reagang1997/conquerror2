@@ -95,14 +95,18 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                         <Col sm={9}>
                             <Form.Group controlId="exampleForm.ControlSelect1">
                                 <Form.Control as="select" onChange={async (e) => {
-                                    const teamName = e.target.value;
-                                    console.log(teamName);
-                                    let id = await axios.get(`/api/teamByName/${teamName}`);
+                                    const statName = e.target.value;
+                                    console.log(statName);
+                                    let id = await axios.get(`/api/statByName/${statName}`);
                                     id = id.data._id;
+                                    setTmpStat({...tmpStat, stat: id});
 
                                 }}>
-                                    <option>Select a Key Stat for Tracking</option>
-                                    {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
+
+                                    <option>Select Stat</option>
+                                    {stats ? stats.map(stat => <option >{stat.statName}</option>) : console.log('no stats')}
+
+
 
                                 </Form.Control>
                             </Form.Group>
