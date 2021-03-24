@@ -84,12 +84,7 @@ function Home({ search, setSearch }) {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col">
-
-                        </div>
-
-                    </div>
+                   
                 </div>
 
             </div>

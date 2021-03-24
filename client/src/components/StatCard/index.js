@@ -78,7 +78,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                     <InputGroup className="mb-3">
                         <FormControl className='stat'
                             id='stat'
-                            placeholder="Stat to Track"
+                            placeholder="New Stat"
                             aria-label="Stat to Track"
                             aria-describedby="basic-addon2"
                             value={tmpStat.name}
@@ -101,7 +101,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                                     id = id.data._id;
 
                                 }}>
-                                    <option>Select a Team</option>
+                                    <option>Select a Key Stat for Tracking</option>
                                     {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
 
                                 </Form.Control>

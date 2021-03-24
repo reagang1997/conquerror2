@@ -52,7 +52,7 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
                     <br />
                     <InputGroup>
                         <FormControl
-                            placeholder="new player name"
+                            placeholder="New Player"
                             aria-label="new player name"
                             aria-describedby="basic-addon2"
                             value={tmpPlayer.name}
@@ -68,7 +68,7 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
                                 setTmpPlayer({ ...tmpPlayer, team: id });
 
                             }}>
-                                <option>Select a Stat</option>
+                                <option>Select Player's Team</option>
                                 {teams ? teams.map(team => <option >{team.teamName}</option>) : console.log('no teams')}
                             </Form.Control>
                         </Form.Group>
