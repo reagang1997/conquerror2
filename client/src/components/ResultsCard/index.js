@@ -39,7 +39,7 @@ const ResultsCard = ({ champID }) => {
                                     })}
                                 </Tr>
 
-                            </Table>)
+                            </Table>, document.getElementById('table'))
                         }): <div></div>}
                     {/* <Table className="table" sortable={true} data={[
                         { PlayerName: 'Jose', Kills: 3, Deaths: 42, Headshots: 0 },
