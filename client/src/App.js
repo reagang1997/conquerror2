@@ -6,9 +6,12 @@ import AdminLand from './Pages/AdminLand';
 import CreateChamp from './Pages/CreateChamp';
 import AddResults from './Pages/AddResults';
 import SearchResults from './Pages/SearchResults';
+import TheResultCard from './components/ResultsCard';
 
 function App() {
   const [search, setSearch] = useState({ champName: '' });
+
+  const [champID, setChampID] = useState('');
   return (
     <Router>
       <NavTabs />
@@ -19,8 +22,11 @@ function App() {
       <Route path='/createChampionship' component={CreateChamp} />
       <Route path='/addResults' component={AddResults} />
       <Route path='/searchResults'>
-        <SearchResults search={search} setSearch={setSearch}/>
-      </Route>;
+        <SearchResults search={search} setSearch={setSearch} champID={champID} setChampID={setChampID}/>
+      </Route>
+      <Route path='/results'>
+        <TheResultCard champID={champID}/>
+      </Route>
     </Router>
   );
 }

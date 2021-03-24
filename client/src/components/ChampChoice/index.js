@@ -5,16 +5,19 @@ import './style.css';
 import axios from 'axios';
 
 
-const ChampChoice = ({ champName, id, flag }) => {
+const ChampChoice = ({ champName, id, flag, champID, setChampID }) => {
 
     const history = useHistory();
 
-    const [champID, setChampID] = useState('');
 
     const handleClick = (e) => {
         history.push(`/addResults/${e.target.id}`);
+
     }
 
+    useEffect(async () => {
+
+    }, [])
 
     return (
         <div className="container">
@@ -23,7 +26,11 @@ const ChampChoice = ({ champName, id, flag }) => {
                 {flag ?
                     <div className='col-4' id='weirdCol'><button className="col-6 resultLink" href="#" id={id} onClick={handleClick}>Add Results</button>
                         <button className="col-6 editLink" href="#">Edit</button></div>
-                    : <button className="col-4 editLink" href="#">View Result</button>}
+                    : <button className="col-4 editLink" href="#" id={champID} onClick={async (e) => {
+                        const tmpID = await axios.get(`/api/oneChamp/${champName}`);
+                        setChampID(tmpID.data._id);
+                        history.push('/results');
+                    }}>View Result</button>}
             </div>
         </div>
     )

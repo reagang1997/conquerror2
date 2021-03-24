@@ -54,6 +54,11 @@ router.get('/api/champ/:champID', async (req, res) => {
 
 })
 
+router.get('/api/oneChamp/:champName', async (req, res) => {
+    const foundChamp = await Champ.findOne({champName: req.params.champName});
+    res.send(foundChamp);
+})
+
 router.put('/api/generateDemoChamp', async (req, res) => {
 
 });
