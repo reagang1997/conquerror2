@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 import './style.css';
 
-const PrevNextBtns = ({ index, setIndex, players }) => {
+const PrevNextBtns = ({ index, setIndex, players, tmpResult, setTmpResult }) => {
     return (
         <Container>
             <Row>
@@ -15,7 +16,25 @@ const PrevNextBtns = ({ index, setIndex, players }) => {
                     }
                 }}>Prev...</Button></Col>
                 <Col><Button variant='dark' block>Save</Button></Col>
-                <Col><Button variant='dark' block onClick={(e) => {
+                <Col><Button variant='dark' block onClick={async (e) => {
+                    console.log(tmpResult);
+                    let playerInfo = {
+                        playerID: players[index]._id,
+                        statsToUpdate: []
+                    }
+                    tmpResult.forEach(async (result) => {
+                        let stat = {
+                            statName: result.statName,
+                            value: result.value
+                        };
+                        playerInfo.statsToUpdate.push(stat);
+                    })
+                    console.log(playerInfo);
+                    let updatedPlayer = await axios.put(`/api/updatePlayerStats`, playerInfo);
+                    setTmpResult([]);
+                    players[index].stats.forEach(stat => {
+                        document.getElementById(stat.statName).value = '';
+                    })
                     if (index === players.length - 1) {
                         setIndex(0)
                     }
