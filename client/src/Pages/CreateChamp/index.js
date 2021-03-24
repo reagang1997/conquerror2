@@ -42,6 +42,7 @@ function CreateChamp() {
     const getTmpChamp = async () => {
         const tmpChamp = await axios.get('/api/tmpChamp');
         console.log(tmpChamp.data)
+        const tmpPlayers = await axios.get(`/api/tmpChamp/${tmpChamp.data._id}/players`)
         history.push(`/createChampionship/${tmpChamp.data._id}`)
     }
 

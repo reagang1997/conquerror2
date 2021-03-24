@@ -54,6 +54,12 @@ router.get('/api/champ/:champID', async (req, res) => {
 
 })
 
+router.get('/api/tmpChamp/:champID/players', async (req, res) => {
+    const tmpPlayers = await Champ.findOne({_id: req.params.champId}).populate('*');
+    res.send(tmpPlayers);
+})
+
+
 router.get('/api/oneChamp/:champName', async (req, res) => {
     const foundChamp = await Champ.findOne({champName: req.params.champName});
     res.send(foundChamp);
