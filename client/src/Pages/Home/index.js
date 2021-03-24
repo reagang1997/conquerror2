@@ -15,7 +15,7 @@ import NewDemoCard from '../../components/NewDemoCardlol';
 
 
 
-function Home() {
+function Home({search, setSearch}) {
 
     const history = useHistory();
 
@@ -25,6 +25,7 @@ function Home() {
         password: '',
         status: 0
     });
+
 
     const createUser = async () => {
 
@@ -60,9 +61,9 @@ function Home() {
                                 <h1 className="display-4">Search</h1>
                             </div>
                             <div className='center' >
-                                <Search className='center' />
+                                <Search className='center' search={search} setSearch={setSearch}/>
                                 <div className='button'>
-                                <button className="btn btn-dark" id="hmBtn" onClick={(e) => history.push('/searchResults')}>Search</button>
+                                <button className="btn btn-dark" id="hmBtn" onClick={(e) => {history.push('/searchResults'); console.log(search)}}>Search</button>
                                 </div>
                             </div>
                             <div className="row justify-content-center text">
