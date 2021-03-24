@@ -5,11 +5,6 @@ import './style.css';
 
 function SearchResults({search, setSearch}) {
     return (
-<<<<<<< HEAD
-        <div>
-            <h1>{search}</h1>
-            <h2>Insert some components here</h2>
-=======
         <div className='container'>
             <br />
             <div className='center' >
@@ -20,7 +15,6 @@ function SearchResults({search, setSearch}) {
             </div>
             <br />
             <Champ/>
->>>>>>> 3f4d0cf230afcf3d29a6c524d9839f80ecf1a749
         </div>
     );
 };
