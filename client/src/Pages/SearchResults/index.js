@@ -7,7 +7,7 @@ import './style.css';
 import axios from 'axios';
 import { set } from 'mongoose';
 
-function SearchResults({search, setSearch}) {
+function SearchResults({search, setSearch, champID, setChampID}) {
     const history = useHistory();
 
     const [searchResults, setSearchResults] = useState([]);
@@ -26,7 +26,7 @@ function SearchResults({search, setSearch}) {
                 <Search className='center' search={search} setSearch={setSearch}/>
             </div>
             <br />
-            {searchResults ? searchResults.map(result => <Champ champName={result.champName} />) : <div></div>}
+            {searchResults ? searchResults.map(result => <Champ champName={result.champName} champID={champID} setChampID={setChampID}/>) : <div></div>}
         </div>
     );
 };
