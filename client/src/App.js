@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import AdminLand from './Pages/AdminLand';
 import CreateChamp from './Pages/CreateChamp';
 import AddResults from './Pages/AddResults';
+import SearchResults from './Pages/SearchResults';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Route exact path="/adminHome" component={AdminLand} />
       <Route  path='/createChampionship' component={CreateChamp} />
       <Route  path='/addResults' component={AddResults} />
-      
+      <Route path='/searchResults' component={SearchResults}/>;
     </Router>
   );
 }
