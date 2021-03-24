@@ -21,9 +21,9 @@ const ChampChoice = ({ champName, id, flag }) => {
             <div className="row champDiv">
                 <span className="col-8 champName">{champName}</span>
                 {flag ?
-                    <div><button className="col-2 resultLink" href="#" id={id} onClick={handleClick}>Add Results</button>
-                        <button className="col-2 editLink" href="#">Edit</button></div>
-                    : <button className="col-2 editLink" href="#">View Result</button>}
+                    <div className='col-4' id='weirdCol'><button className="col-6 resultLink" href="#" id={id} onClick={handleClick}>Add Results</button>
+                        <button className="col-6 editLink" href="#">Edit</button></div>
+                    : <button className="col-4 editLink" href="#">View Result</button>}
             </div>
         </div>
     )
