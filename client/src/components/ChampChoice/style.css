@@ -14,3 +14,7 @@
 .resultLink, .editLink {
     text-align: right;
 }
+
+#weirdCol {
+    padding-left: 0px;
+}
