@@ -43,7 +43,7 @@ function AdminLand() {
             <br/>
 
             {champs.map(c => {
-                return <Champ champName={c.champName} id={c._id}/>
+                return <Champ flag='admin' champName={c.champName} id={c._id}/>
             })}
             {/* <Champ champName={champ} /> */}
             <AddChampBtn />
