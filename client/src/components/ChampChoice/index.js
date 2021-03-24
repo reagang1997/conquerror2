@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {BrowserRouter as Router, useHistory} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 import './style.css';
 
 import axios from 'axios';
 
 
-const ChampChoice = ({champName, id}) => {
+const ChampChoice = ({ champName, id, flag }) => {
 
     const history = useHistory();
 
@@ -20,8 +20,10 @@ const ChampChoice = ({champName, id}) => {
         <div className="container">
             <div className="row champDiv">
                 <span className="col-8 champName">{champName}</span>
-                <button className="col-2 resultLink" href="#" id={id} onClick={handleClick}>Add Results</button>
-                <button className="col-2 editLink" href="#">Edit</button>
+                {flag ?
+                    <div><button className="col-2 resultLink" href="#" id={id} onClick={handleClick}>Add Results</button>
+                        <button className="col-2 editLink" href="#">Edit</button></div>
+                    : <button className="col-2 editLink" href="#">View Result</button>}
             </div>
         </div>
     )

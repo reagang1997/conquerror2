@@ -3,3 +3,8 @@
     border-width: 1px;
     border-color: lightgrey;
 }
+
+#nxtBtn {
+    width: 25%;
+    margin: auto;
+}
