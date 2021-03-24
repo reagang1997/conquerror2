@@ -17,9 +17,34 @@ router.post('/api/createPlayer/:teamID/:champID', async (req, res) => {
     champStats.stats.forEach(async (stat) => {
         let foundStat = await Stat.findOne({ _id: stat });
         console.log(foundStat)
-        let addedStats = await Player.findOneAndUpdate({ _id: newPlayer._id }, { $push:{ stats: foundStat} });
+        let addedStats = await Player.findOneAndUpdate({ _id: newPlayer._id }, { $push: { stats: foundStat } });
     })
     res.send(newPlayer);
 });
+
+router.put('/api/updatePlayerStats', async (req, res) => {
+    const { playerID, statsToUpdate } = req.body;
+    let playerStats = await Player.findOne({ _id: playerID });
+    playerStats = playerStats.stats;
+    console.log(playerStats);
+    const updatedStats = playerStats.map(playerStat => {
+        statsToUpdate.forEach(stat => {
+            if (stat.statName === playerStat.statName) {
+                playerStat.value += +stat.value;
+                return playerStat;
+            }
+        });
+        return playerStat;
+    })
+    console.log(updatedStats);
+
+    const updatedPlayer = await Player.findOneAndUpdate({ _id: playerID }, { $set: { stats: updatedStats } }, { new: true });
+    console.log(updatedPlayer);
+    res.send(updatedPlayer);
+    // const updatedPlayer = await Player.findOne({ _id: playerID });
+
+    // console.log(updatedPlayer);
+
+})
 
 module.exports = router;
