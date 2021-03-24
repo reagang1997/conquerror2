@@ -1,9 +1,9 @@
 import React from 'react';
 import "./style.css"
 
-function Search(){
+function Search({search, setSearch}){
     return(
-        <input placeholder="Search Championships!"></input>
+        <input placeholder="Search Championships!" onChange={(e) => setSearch({champName: e.target.value})}></input>
     )
 }
 
