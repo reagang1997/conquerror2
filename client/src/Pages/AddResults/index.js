@@ -15,11 +15,11 @@ function AddResults() {
 
     const [index, setIndex] = useState(0);
 
-    const [results, setResults] = useState([
-        
-    ]);
+    const [results, setResults] = useState([]);
 
     const [tmpResult, setTmpResult] = useState([]);
+
+    const [updatedCount, setUpdatedCount] = useState(0);
 
     useEffect(async () => {
         let url = window.location.href;
@@ -42,10 +42,26 @@ function AddResults() {
             <div className="title shadow">
                 <h1 id={'create-champ'}>Update Results</h1>
             </div>
-            <NewResults players={players} index={index} results={results} setResults={setResults} tmpResult={tmpResult} setTmpResult={setTmpResult}/>
+            <NewResults 
+            players={players} 
+            index={index} 
+            results={results} 
+            setResults={setResults} 
+            tmpResult={tmpResult} 
+            setTmpResult={setTmpResult}
+            
+            />
             {/* <ResultsCard /> */}
             <br />
-            <PrevNxt index={index} setIndex={setIndex} players={players} tmpResult={tmpResult} setTmpResult={setTmpResult}/>
+            <PrevNxt 
+            index={index} 
+            setIndex={setIndex} 
+            players={players} 
+            tmpResult={tmpResult} 
+            setTmpResult={setTmpResult}
+            updatedCount={updatedCount}
+            setUpdatedCount={setUpdatedCount}
+            />
             {/* <SaveBtn /> */}
         </div>
     );
