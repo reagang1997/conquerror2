@@ -23,24 +23,25 @@ const ResultsCard = ({ champID }) => {
                 <Col className="mainDiv">
                     <h1>Results</h1>
                     {players ?
-                        players.map(player => {
-                            return (<Table>
-                                <Tr>
-                                    <Td column="Player Name" data={player.playerName}>
-                                        <b>{player.playerName}</b>
-                                    </Td>
-                                    {player.stats.map(stat => {
-                                        return (
+                        <Table className='table' sortable={true}>
+                            {players.map(player => {
+                                return (
+                                    <Tr>
+                                        <Td column="Player Name" data={player.playerName}>
+                                            <b>{player.playerName}</b>
+                                        </Td>
+                                        {player.stats.map(stat => {
+                                            return (
 
-                                            <Td column={stat.statName} data={stat.value}>
-                                                {stat.value}
-                                            </Td>
-                                        )
-                                    })}
-                                </Tr>
+                                                <Td column={stat.statName} data={stat.value}>
+                                                    {stat.value}
+                                                </Td>
+                                            )
+                                        })}
+                                    </Tr>
 
-                            </Table>, document.getElementById('table'))
-                        }): <div></div>}
+                                )
+                            })}</Table> : <div></div>}
                     {/* <Table className="table" sortable={true} data={[
                         { PlayerName: 'Jose', Kills: 3, Deaths: 42, Headshots: 0 },
                         { PlayerName: 'Angel', Kills: 30, Deaths: 3, Headshots: 10 },

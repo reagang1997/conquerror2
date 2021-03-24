@@ -58,7 +58,7 @@ function CreateChamp() {
         <div className="container">
             <br />
             <div>
-                <h1 className="title shadow"> <h1 id={'create-champ'}>Create Champ Page</h1>
+                <h1 className="title shadow"> <h1 id={'create-champ'}>Create Your League</h1>
                     <InputGroup className="mb-3">
                         <FormControl
                             placeholder="Create Champ League"

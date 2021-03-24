@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import { BrowserRouter as Router, Route, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
+import Image from '../../assets/jose.jpg';
 
 import PlayerCard from '../../components/PlayerCard/index';
 
@@ -47,9 +48,9 @@ function Home({ search, setSearch }) {
             <div className="row example">
 
                 <div className="col-md-6 jumbotron" id="adjJumbo">
-                    <h1 className="display-4 center">Welcome to Conquerror!</h1>
+                    <h1 className="display-4 center">Welcome to Championship Tracker!</h1>
                     <div className="container example">
-                        <img src="https://via.placeholder.com/300" alt="gif of making champ" className="exampleImg" />
+                        <img src={Image} alt="gif of making champ" className="exampleImg" />
                     </div>
 
                 </div>
@@ -84,12 +85,7 @@ function Home({ search, setSearch }) {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col">
-
-                        </div>
-
-                    </div>
+                   
                 </div>
 
             </div>
