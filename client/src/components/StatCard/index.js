@@ -104,7 +104,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                                 }}>
 
                                     <option>Select Stat</option>
-                                    {stats ? stats.map(stat => <option >{stat.statName}</option>) : console.log('no stats')}
+                                    {stats ? stats.map(stat => <option >{stat.name}</option>) : console.log('no stats')}
 
 
 
