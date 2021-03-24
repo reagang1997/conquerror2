@@ -51,7 +51,7 @@ const TeamCard = ({ teams, setTeams }) => {
                     <br />
                     <InputGroup className="mb-3">
                         <FormControl
-                            placeholder="Team to Track"
+                            placeholder="New Team"
                             aria-label="Team to Track"
                             aria-describedby="basic-addon2"
                             value={tmpTeam.teamName}
