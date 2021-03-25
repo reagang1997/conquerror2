@@ -35,7 +35,9 @@ const NewChampBtn = () => {
             stats: [],
             players: [],
             teams: [],
-            admin: []
+            admin: [],
+            keyStat: '',
+            keyStatValue: ''
         }
         const newChamp = await axios.post('/api/createChamp', tmp);
 

@@ -71,6 +71,16 @@ router.get('/api/champTeams/:champID', async (req, res) => {
     res.send(players);
 })
 
+router.put('/api/champ/updateKeyStat/:statName/:champID', async (req, res) => {
+    const updated = await Champ.findOneAndUpdate({_id: req.params.champID}, {$set: {keyStat: req.params.statName}});
+    res.send(updated);
+})
+
+router.put('/api/champ/updateKeyStatValue/:value/:champID', async (req, res) => {
+    const updated = await Champ.findOneAndUpdate({_id: req.params.champID}, {$set: {keyStatValue: req.params.value}})
+    res.send(updated);
+})
+
 
 router.get('/api/oneChamp/:champName', async (req, res) => {
     const foundChamp = await Champ.findOne({champName: req.params.champName});
