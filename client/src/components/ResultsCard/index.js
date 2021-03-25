@@ -26,12 +26,6 @@ const ResultsCard = ({ champID }) => {
         // createCol();
     }, [])
 
-
-        setPlayers(foundChamp.data.players);
-
-    }, [cols])
-
-
     return (
         <Container>
             <br />
