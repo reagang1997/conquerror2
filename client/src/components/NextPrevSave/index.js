@@ -25,6 +25,7 @@ const PrevNextBtns = ({ index, setIndex, players, tmpResult, setTmpResult, updat
                                 playerInfo.statsToUpdate.push(stat);
                             });
                             let updatedPlayer = await axios.put(`/api/updatePlayerStats`, playerInfo);
+                            let updatedTeam = await axios.put(`/api/teams/updateTeamStats`, playerInfo);
                             setTmpResult([]);
                             players[index].stats.forEach(stat => {
                                 document.getElementById(stat.statName).value = '';

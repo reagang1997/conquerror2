@@ -44,6 +44,15 @@ function Home({ search, setSearch, setLoggedIn }) {
                     <h1 className="display-4 center">Welcome to Championship Tracker!</h1>
                     <div className="container example">
                         <img src={gif1} alt="gif of making champ" className="exampleImg" style={{'width': '400px', 'height': '203px'}}/>
+                        
+                    </div>
+                    <div>
+                    <p className='margin-top-10'>
+                        Welcome to Championship Tracker! Your one stop shop for all of your championship needs. With Championship Tracker, you can create custom championships
+                        to fit any needs (sports, eSports, or any other kind of championship). Once you create a championship, the app will keep track of all desired stats and also
+                        give you a results page so all of your participents will have access to the championship standings at any time! Just sign up and create a championship to
+                        get started!
+                        </p>
                     </div>
 
                 </div>
