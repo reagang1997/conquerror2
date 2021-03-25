@@ -6,7 +6,7 @@ const AddChampHead = () => {
     return (
         <Container>
             <div className="title shadow" id='noWrap'>
-                <h1 id='create-champ'>Create Your Leagues Here!!!</h1>
+                <h1 id='create-champ'>Create A Championship To Get Started!</h1>
             </div>
         </Container>
     );
