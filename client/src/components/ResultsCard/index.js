@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ListGroup, Button, Form, Dropdown, DropdownButton } from 'react-bootstrap';
 import Reactable from "reactable";
-import { useTable } from 'react-table';
 import axios from 'axios';
 import './style.css';
 

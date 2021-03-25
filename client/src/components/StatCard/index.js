@@ -7,18 +7,21 @@ import './style.css';
 
 
 
-const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => {
+const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, update, setUpdate, champID, setChampID }) => {
 
     const [tmpStat, setTmpStat] = useState({
-        name: ""
+        name: "",
+        id: ""
     });
+
+    console.log(stats);
 
     const [champ, setChamp] = useState('');
 
     useEffect(() => {
         // console.log(tmpStat);
         getChampID();
-    }, [tmpStat])
+    }, [stats])
 
     const getChampID = () => {
         let url = window.location.href;
@@ -30,6 +33,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
             setChamp(url[url.length - 1])
 
         }
+
     }
 
     let addStat = (e) => {
@@ -55,9 +59,16 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                 <Col md={5} className="leftDiv shadow" id='appendBlankStat'>
                     <h1>Current Tracking Stats</h1>
                     <br />
-                    {stats.map(stat => {
+                    {stats ? stats.map(stat => {
+                        console.log(stat);
                         return (
-                            <InputStat name={stat.name} flag='stat'
+                            <InputStat name={stat.statName}
+                                update={update}
+                                setUpdate={setUpdate}
+                                champID={champID}
+                                setChampID={setChampID}
+                                id={stat._id}
+                                flag='stat'
                                 stats={stats}
                                 teams={teams}
                                 players={players}
@@ -65,7 +76,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                                 setPlayers={setPlayers}
                                 setTeams={setTeams} />
                         );
-                    })}
+                    }) : <div></div>}
 
                 </Col>
 
@@ -81,7 +92,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                             aria-label="Stat to Track"
                             aria-describedby="basic-addon2"
                             value={tmpStat.name}
-                            onChange={e => setTmpStat({ name: e.target.value })}
+                            onChange={e => setTmpStat({ ...tmpStat, name: e.target.value })}
                         />
                     </InputGroup>
 
@@ -94,11 +105,12 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                         <Col sm={9}>
                             <Form.Group controlId="exampleForm.ControlSelect1">
                                 <Form.Control as="select" onChange={async (e) => {
-                                    const statName = e.target.value;
-                                    console.log(statName);
-                                    let id = await axios.get(`/api/statByName/${statName}`);
-                                    id = id.data._id;
-                                    setTmpStat({...tmpStat, stat: id});
+                                    // const statName = e.target.value;
+                                    // console.log(statName);
+                                    // let id = await axios.get(`/api/statByName/${statName}`);
+                                    // console.log(id);
+                                    // id = id.data._id;
+                                    // setTmpStat({...tmpStat, stat: id});
 
                                 }}>
 
@@ -113,20 +125,24 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams }) => 
                     </Form.Group>
 
                     <Form>
-                        <Form.Check inline type='radio' name="group1" id="Check1" value="highest to lowest" label='highest to lowest'/>
-                        <Form.Check inline type='radio' name="group1" id="Check2" value="lowest to highest" label='lowest to highest'/>
+                        <Form.Check inline type='radio' name="group1" id="Check1" value="highest to lowest" label='highest to lowest' />
+                        <Form.Check inline type='radio' name="group1" id="Check2" value="lowest to highest" label='lowest to highest' />
                     </Form>
                     <br />
 
                     <Button variant="dark" block className="right test" onClick={async (e) => {
+                        document.getElementById('stat').value = "";
                         e.preventDefault();
                         console.log(champ);
-                        const newStat = axios.post(`/api/createStat/${champ}`, tmpStat);
-                        setStats([...stats, tmpStat]);
-                        setTmpStat({ name: "" });
+                        const newStat = await axios.post(`/api/createStat/${champ}`, tmpStat);
+                        const tmpid = newStat.data._id;
+
+                        console.log(tmpStat);
+                        // setStats([...stats, tmpStat]);
+                        // setTmpStat({ name: "" });
                         // console.log(stats);
                         // console.log(tmpStat);
-                        document.getElementById('stat').value = "";
+                        setUpdate(update + 1);
                     }}>Add Stat</Button>
 
                 </Col>

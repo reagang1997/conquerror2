@@ -5,7 +5,7 @@ import { Container, Row, Col, Card, ListGroup, Form, Dropdown, DropdownButton, I
 import InputStat from "../InputStat";
 import axios from "axios";
 
-const TeamCard = ({ teams, setTeams }) => {
+const TeamCard = ({ stats, players, teams, setStats, setPlayers, setTeams, update, setUpdate, champID, setChampID }) => {
 
     const [tmpTeam, setTmpTeam] = useState({
         teamName: ""
@@ -40,7 +40,19 @@ const TeamCard = ({ teams, setTeams }) => {
                 <Col md={5} className="leftDiv shadow" id='appendBlankTeam'>
                     <h1>Teams</h1>
                     <br />
-                    {teams ? teams.map(team => <InputStat key={team.teamName} name={team.teamName} />) : <div></div>}
+                    {teams ? teams.map(team => <InputStat key={team.teamName} name={team.teamName}
+                        update={update}
+                        setUpdate={setUpdate}
+                        champID={champID}
+                        setChampID={setChampID}
+                        id={team._id}
+                        flag='team'
+                        stats={stats}
+                        teams={teams}
+                        players={players}
+                        setStats={setStats}
+                        setPlayers={setPlayers}
+                        setTeams={setTeams} />) : <div></div>}
 
                 </Col>
 
@@ -63,8 +75,7 @@ const TeamCard = ({ teams, setTeams }) => {
                             e.preventDefault();
 
                             const newTeam = await axios.post(`/api/createTeam/${champ}`, tmpTeam);
-
-                            setTeams([...teams,tmpTeam]);
+                            setUpdate(update + 1);
                             setTmpTeam({ teamName: "" });
                         }}>Add Team</Button>
                 </Col>
