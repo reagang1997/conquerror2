@@ -1,4 +1,4 @@
-# conquerror2
+# Championship Tracker
 
 https://championship-tracker.herokuapp.com/
 
