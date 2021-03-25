@@ -35,10 +35,11 @@ function AdminLand({champID, setChampID}) {
     return (
         <div>
             <br/>
-            <AddChampHead />
-            {champs.map(c => {
+            {champs.length > 0 ? champs.map(c => {
                 return <Champ flag='admin' champName={c.champName} id={c._id} champID={champID} setChampID={setChampID}/>
-            })}
+            }) : <AddChampHead /> }
+            
+        
             <AddChampBtn />
         </div>
     );

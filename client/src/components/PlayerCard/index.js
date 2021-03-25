@@ -64,7 +64,7 @@ const PlayerCard = ({ teams, players, setPlayers, update, setUpdate, champID, se
                             placeholder="New Player"
                             aria-label="new player name"
                             aria-describedby="basic-addon2"
-                            value={tmpPlayer.name}
+                            value={tmpPlayer.playerName}
                             onChange={e => setTmpPlayer({ ...tmpPlayer, playerName: e.target.value })}
                         />
 
