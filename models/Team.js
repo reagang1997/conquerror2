@@ -12,7 +12,9 @@ const teamSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Player'
         }
-    ]
+    ],
+
+    stats: Array
 }); 
 
 const Team = mongoose.model('Team', teamSchema);

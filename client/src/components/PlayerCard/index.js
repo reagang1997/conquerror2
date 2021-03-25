@@ -88,6 +88,7 @@ const PlayerCard = ({ teams, players, setPlayers, update, setUpdate, champID, se
                     <Button variant="dark" block className="right test"
                         onClick={async (e) => {
                             e.preventDefault();
+                            console.log(tmpPlayer);
                             const newPlayer = await axios.post(`/api/createPlayer/${tmpPlayer.team}/${champ}`, tmpPlayer)
                             setTmpPlayer({ ...tmpPlayer, playerName: "" });
                             setUpdate(update + 1);
