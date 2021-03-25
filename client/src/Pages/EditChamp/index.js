@@ -41,13 +41,11 @@ function EditChamp({champID, setChampID}) {
 
     const getTeams = async () => {
         const tmpTeams = await axios.get(`/api/champTeams/${champID}`);
-        console.log(tmpTeams);
         setTeams(tmpTeams.data.teams);
     }
 
     const getStats = async () => {
         const tmpStats = await axios.get(`/api/champStats/${champID}`);
-        console.log(tmpStats.data.stats)
         setStats(tmpStats.data.stats);
     }
     const getChampName = async () => {

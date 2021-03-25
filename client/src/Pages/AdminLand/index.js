@@ -27,12 +27,7 @@ function AdminLand({champID, setChampID}) {
         const userChamps = await axios.get(`/api/userChamps/${user.data._id}`);
 
         setChamps(userChamps.data)
-        // userChamps.data.forEach(champ => {
-        //     setChamps({...champs, champ});
-        //     console.log(champ);
-        // })
 
-        console.log(champs);
 
 
     }
@@ -44,8 +39,7 @@ function AdminLand({champID, setChampID}) {
                 return <Champ flag='admin' champName={c.champName} id={c._id} champID={champID} setChampID={setChampID}/>
             }) : <AddChampHead /> }
             
-            
-            {/* <Champ champName={champ} /> */}
+        
             <AddChampBtn />
         </div>
     );

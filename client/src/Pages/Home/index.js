@@ -26,12 +26,10 @@ function Home({ search, setSearch }) {
 
         const createdUser = await axios.post('/signup', user);
         const loggedInUser = await axios.post('/login', user);
-        console.log(loggedInUser);
         if (loggedInUser.status === 200) {
             history.push('/adminHome');
         }
         setUser({ ...user, status: loggedInUser.status });
-        console.log(user);
 
     }
 

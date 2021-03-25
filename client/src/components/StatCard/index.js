@@ -13,8 +13,6 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
         id: ""
     });
 
-    console.log(stats);
-
     const [champ, setChamp] = useState('');
 
     const [keyStat, setKeyStat] = useState('');
@@ -22,14 +20,13 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
     const [keyStatValue, setKeyStatValue] = useState('');
 
     useEffect(() => {
-        // console.log(tmpStat);
         getChampID();
     }, [stats])
 
     const getChampID = () => {
         let url = window.location.href;
         url = url.split('/');
-        console.log('url: ', url)
+
         if (url.length !== 6) {
             url = window.location.href;
             url = url.split('/');
@@ -43,8 +40,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
 
         const stat = document.getElementsByClassName('stat');
 
-        // console.log(stat);
-        console.log('I am being clicked');
+
 
     }
 
@@ -63,7 +59,6 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
                     <h1>Current Tracking Stats</h1>
                     <br />
                     {stats ? stats.map(stat => {
-                        console.log(stat);
                         return (
                             <InputStat name={stat.statName}
                                 update={update}
@@ -108,7 +103,6 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
                         <Col sm={9}>
                             <Form.Group controlId="exampleForm.ControlSelect1">
                                 <Form.Control as="select" onChange={async (e) => {
-                                    console.log(e.target.value);
                                     //update as key stat
                                     setKeyStat(e.target.value);
                                     const updated = await axios.put(`/api/champ/updateKeyStat/${e.target.value}/${champID}`);
@@ -139,15 +133,9 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
                     <Button variant="dark" block className="right test" onClick={async (e) => {
                         document.getElementById('stat').value = "";
                         e.preventDefault();
-                        console.log(champ);
                         const newStat = await axios.post(`/api/createStat/${champ}`, tmpStat);
                         const tmpid = newStat.data._id;
 
-                        console.log(tmpStat);
-                        // setStats([...stats, tmpStat]);
-                        setTmpStat({ name: "" });
-                        // console.log(stats);
-                        // console.log(tmpStat);
                         setUpdate(update + 1);
                     }}>Add Stat</Button>
 
