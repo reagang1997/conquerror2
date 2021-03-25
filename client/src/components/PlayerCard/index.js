@@ -4,7 +4,7 @@ import InputStat from '../InputStat';
 import axios from 'axios';
 import './style.css';
 
-const PlayerCard = ({ teams, players, setPlayers }) => {
+const PlayerCard = ({ teams, players, setPlayers, update, setUpdate, champID, setChampID, stats, setStats, setTeams }) => {
 
     const [tmpPlayer, setTmpPlayer] = useState({
         playerName: "",
@@ -40,7 +40,18 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
 
                     <h1>Players</h1>
                     <br />
-                    {players ? players.map(player => <InputStat name={player.playerName} />) : <div></div>}
+                    {players ? players.map(player => <InputStat name={player.playerName} id={player._id}
+                    update={update}
+                    setUpdate={setUpdate}
+                    champID={champID}
+                    setChampID={setChampID}
+                    flag='player'
+                    stats={stats}
+                    teams={teams}
+                    players={players}
+                    setStats={setStats}
+                    setPlayers={setPlayers}
+                    setTeams={setTeams}/>) : <div></div>}
 
                 </Col>
 
@@ -81,8 +92,8 @@ const PlayerCard = ({ teams, players, setPlayers }) => {
                         onClick={async (e) => {
                             e.preventDefault();
                             const newPlayer = await axios.post(`/api/createPlayer/${tmpPlayer.team}/${champ}`, tmpPlayer)
-                            setPlayers([...players, tmpPlayer]);
                             setTmpPlayer({ ...tmpPlayer, playerName: "" });
+                            setUpdate(update + 1);
                         }}>Add Player</Button>
 
                 </Col>

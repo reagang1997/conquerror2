@@ -26,6 +26,7 @@ function CreateChamp() {
 
     const [renderCount, setRenderCount] = useState(0);
 
+    const [update, setUpdate] = useState(0);
 
 
     useEffect(() => {
@@ -39,14 +40,33 @@ function CreateChamp() {
             setChampID(url[url.length - 1])
 
         }
-    }, [teams])
+        getStats();
+        getTeams();
+        getPlayers();
+    }, [update])
 
+    const getPlayers = async () => {
+        const tmpPlayers = await axios.get(`/api/champPlayers/${champID}`);
+        setPlayers(tmpPlayers.data.players)
+    }
+
+    const getTeams = async () => {
+        const tmpTeams = await axios.get(`/api/champTeams/${champID}`);
+        console.log(tmpTeams);
+        setTeams(tmpTeams.data.teams);
+    }
+
+    const getStats = async () => {
+        const tmpStats = await axios.get(`/api/champStats/${champID}`);
+        console.log(tmpStats.data.stats)
+        setStats(tmpStats.data.stats);
+    }
     const getTmpChamp = async () => {
         if(renderCount === 0){
             const tmpChamp = await axios.get('/api/tmpChamp');
             console.log(tmpChamp.data)
-            const tmpPlayers = await axios.get(`/api/tmpChamp/${tmpChamp.data._id}/players`)
             history.push(`/createChampionship/${tmpChamp.data._id}`)
+            setUpdate(update + 1);
         }
         setRenderCount(renderCount + 1);
         
@@ -83,10 +103,10 @@ function CreateChamp() {
 
 
 
-            <StatCard stats={stats} setStats={setStats} champID={champID} className="shadow" />
+            <StatCard stats={stats} setStats={setStats} champID={champID} setChampID={setChampID} update={update} setUpdate={setUpdate} className="shadow" />
 
-            <TeamCard teams={teams} setTeams={setTeams} />
-            <PlayerCard players={players} setPlayers={setPlayers} teams={teams} />
+            <TeamCard teams={teams} setTeams={setTeams} update={update} setUpdate={setUpdate} champID={champID} setChampID={setChampID}/>
+            <PlayerCard players={players} setPlayers={setPlayers} teams={teams} update={update} setUpdate={setUpdate} champID={champID} setChampID={setChampID} />
 
             <SaveBtn />
         </div>

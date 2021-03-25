@@ -22,6 +22,12 @@ router.post('/api/createPlayer/:teamID/:champID', async (req, res) => {
     res.send(newPlayer);
 });
 
+router.get('/api/players/:playerID/:champID', async (req, res) => {
+    const deletedStat = await Player.deleteOne({_id: req.params.playerID});
+    const newPlayers = await Champ.findOneAndUpdate({_id: req.params.champID}, {$pull: {players: req.params.playerID}}).populate('players');
+    res.send(newPlayers);
+});
+
 router.put('/api/updatePlayerStats', async (req, res) => {
     const { playerID, statsToUpdate } = req.body;
     let playerStats = await Player.findOne({ _id: playerID });

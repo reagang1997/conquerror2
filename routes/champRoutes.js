@@ -54,9 +54,21 @@ router.get('/api/champ/:champID', async (req, res) => {
 
 })
 
-router.get('/api/tmpChamp/:champID/players', async (req, res) => {
-    const tmpPlayers = await Champ.findOne({_id: req.params.champId}).populate('*');
+router.get('/api/champPlayers/:champId', async (req, res) => {
+    const tmpPlayers = await Champ.findOne({_id: req.params.champId}).populate('players');
     res.send(tmpPlayers);
+})
+
+router.get('/api/champStats/:champID', async (req, res) => {
+    console.log(req.params.champID);
+    const stats = await Champ.findOne({_id: req.params.champID}).populate('stats');
+    res.send(stats);
+})
+
+router.get('/api/champTeams/:champID', async (req, res) => {
+    console.log(req.params.champID);
+    const players = await Champ.findOne({_id: req.params.champID}).populate('teams');
+    res.send(players);
 })
 
 
