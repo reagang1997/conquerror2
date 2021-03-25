@@ -87,6 +87,17 @@ router.get('/api/oneChamp/:champName', async (req, res) => {
     res.send(foundChamp);
 })
 
+router.get('/api/populatedChampTeams/:champID', async (req, res) => {
+    const foundChamp = await Champ.findOne({_id: req.params.champID}).populate({
+        path: 'teams',
+        populate: {
+            path: 'players',
+            model: 'Player'
+        }
+    })
+    res.send(foundChamp);
+})
+
 router.put('/api/generateDemoChamp', async (req, res) => {
 
 });
