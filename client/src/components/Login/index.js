@@ -18,13 +18,11 @@ function Login({ setLoggedIn }) {
     const loginUser = async () => {
 
         const loggedInUser = await axios.post('/login', user);
-        console.log(loggedInUser);
         if (loggedInUser.status === 200) {
             setLoggedIn(true);
             history.push('/adminHome');
         }
         setUser({ ...user, status: loggedInUser.status });
-        console.log(user);
 
     }
 

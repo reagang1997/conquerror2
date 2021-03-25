@@ -13,10 +13,8 @@ function SearchResults({search, setSearch, champID, setChampID}) {
     const [searchResults, setSearchResults] = useState([]);
 
     useEffect(async () => {
-        console.log('hitting results');
         const tmpResults = await axios.get(`/api/champs/${search.champName}`);
         setSearchResults(tmpResults.data);
-        console.log(searchResults);
     }, [search])
     
     return (
