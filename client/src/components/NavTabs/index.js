@@ -21,13 +21,8 @@ function NavTabs({ isLoggedIn, setLoggedIn }) {
             <div className="collapse navbar-collapse justify-content-end">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    </li>
-                    <li className="nav-item">
-                        {isLoggedIn ? <div><Button onClick={(e) => history.push('/adminHome')}>Admin Home</Button>
-                        <Button onClick={(e) => history.push('/searchResults')}>Search For Championship</Button> </div>: <Login setLoggedIn={setLoggedIn}></Login>}
-                    </li>
-                    <li className="nav-item">
-
+                        {isLoggedIn ? <div><Button id='btnOutline' variant="outline-dark" onClick={(e) => history.push('/adminHome')}>Admin Home</Button>
+                        <Button id='btnOutline' variant="outline-dark" onClick={(e) => history.push('/searchResults')}>Search For Championship</Button> </div>: <Login setLoggedIn={setLoggedIn}></Login>}
                     </li>
                 </ul>
             </div>

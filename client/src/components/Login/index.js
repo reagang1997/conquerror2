@@ -33,7 +33,7 @@ function Login({ setLoggedIn }) {
         <div>
             <input id='email' placeholder='Email' onChange={(e) => setUser({ ...user, email: e.target.value })} />
             <input id='password' placeholder='Password' type='password' onChange={(e) => setUser({ ...user, password: e.target.value })} />
-            <button className='btn' onClick={loginUser}>Login</button>
+            <button className='btn btn-outline-dark' style={{'border': 'none'}} onClick={loginUser}>Login</button>
         </div>
     )
 }
