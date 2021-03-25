@@ -9,115 +9,22 @@ const ResultsCard = ({ champID }) => {
     const [players, setPlayers] = useState([]);
     const [cols, setCols] = useState([]);
     const [update, setUpdate] = useState(0);
+    const [keyStat, setKeyStat] = useState({
+        keyStatName: '',
+        keyStatValue: ''
+    });
 
     const Table = Reactable.Table;
     const Tr = Reactable.Tr;
     const Td = Reactable.Td;
     useEffect(async () => {
         const foundChamp = await axios.get(`/api/champ/${champID}`);
+        setKeyStat({keyStatName: foundChamp.data.keyStat, keyStatValue: foundChamp.data.keyStatValue})
         console.log(foundChamp.data);
         setPlayers(foundChamp.data.players);
         // createCol();
-    }, [cols])
-    //--------------------------------------REACT-TABLE----------------------------------------------------
-    // const data = React.useMemo(
-    //     () =>
-    //         //     const tmp1 = players.map(player => {
-    //         //         const tmpObj1 = {
-    //         //             col1: player.playerName,
-    //         //             col2: 
-    //         //         }
-    //         //     });
+    }, [])
 
-    //         [
-    //             {
-    //                 col1: 'Jose',
-    //                 col2: 3,
-    //                 col3: 42,
-    //                 col4: 0,
-    //             },
-    //             {
-    //                 col1: 'Angel',
-    //                 col2: 30,
-    //                 col3: 3,
-    //                 col4: 10,
-    //             },
-    //             {
-    //                 col1: 'Dave',
-    //                 col2: 22,
-    //                 col3: 5,
-    //                 col4: 9,
-    //             },
-    //             {
-    //                 col1: 'Reagan',
-    //                 col2: 35,
-    //                 col3: 1,
-    //                 col4: 11,
-    //             },
-    //         ],
-    //     []
-
-    // )
-
-    // const createCol = () => {
-
-    //     if (players) {
-    //         console.log(players[0]);
-    //         let tmpCol = {
-    //             Header: 'PlayerName',
-    //             accessor: 'col1',
-    //         }
-
-    //         let tmpcols = [];
-    //         tmpcols.push(tmpCol);
-    //         players[0].stats.forEach((stat, i) => {
-    //             tmpCol.Header = stat.statName;
-    //             tmpCol.accessor = 'col' + (i + 2);
-    //             tmpcols.push(tmpCol);
-    //         })
-    //         console.log(tmpcols);
-    //         setCols(tmpcols);
-    //     }
-
-    //     if (update === 0) {
-    //         setUpdate(update + 1);
-    //     }
-    // }
-
-    // const columns = React.useMemo(
-
-    //     () => cols, []
-
-
-    // [
-    //     {
-    //         Header: 'PlayerName',
-    //         accessor: 'col1', // accessor is the "key" in the data
-    //     },
-    //     {
-    //         Header: 'Kills',
-    //         accessor: 'col2',
-    //     },
-    //     {
-    //         Header: 'Deaths',
-    //         accessor: 'col3',
-    //     },
-    //     {
-    //         Header: 'Headshots',
-    //         accessor: 'col4',
-    //     },
-    // ],
-
-    // )
-
-    // const {
-    //     getTableProps,
-    //     getTableBodyProps,
-    //     headerGroups,
-    //     rows,
-    //     prepareRow,
-    // } = useTable({ columns, data })
-    //--------------------------------------REACT-TABLE----------------------------------------------------
 
     return (
         <Container>
