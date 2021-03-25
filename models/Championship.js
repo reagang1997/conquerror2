@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const champSchema = new Schema({
 
     champName: String,
+    keyStat: String,
+    keyStatValue: String,
 
     admin: [
         {
