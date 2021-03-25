@@ -135,7 +135,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
                         e.preventDefault();
                         const newStat = await axios.post(`/api/createStat/${champ}`, tmpStat);
                         const tmpid = newStat.data._id;
-
+                        setTmpStat({...tmpStat, name: ''});
                         setUpdate(update + 1);
                     }}>Add Stat</Button>
 
