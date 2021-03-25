@@ -25,7 +25,11 @@ const ChampChoice = ({ champName, id, flag, champID, setChampID }) => {
                 <span className="col-8 champName">{champName}</span>
                 {flag ?
                     <div className='col-4' id='weirdCol'><button className="col-6 resultLink" href="#" id={id} onClick={handleClick}>Add Results</button>
-                        <button className="col-6 editLink" href="#">Edit</button></div>
+                        <button className="col-6 editLink" href="#" id={id} onClick={e => {
+                            e.preventDefault();
+                            setChampID(id)
+                            history.push(`/editChamp/${id}`)
+                        }}>Edit</button></div>
                     : <button className="col-4 editLink" href="#" id={champID} onClick={async (e) => {
                         const tmpID = await axios.get(`/api/oneChamp/${champName}`);
                         setChampID(tmpID.data._id);

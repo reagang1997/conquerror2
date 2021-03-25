@@ -54,9 +54,31 @@ router.get('/api/champ/:champID', async (req, res) => {
 
 })
 
-router.get('/api/tmpChamp/:champID/players', async (req, res) => {
-    const tmpPlayers = await Champ.findOne({_id: req.params.champId}).populate('*');
+router.get('/api/champPlayers/:champId', async (req, res) => {
+    const tmpPlayers = await Champ.findOne({_id: req.params.champId}).populate('players');
     res.send(tmpPlayers);
+})
+
+router.get('/api/champStats/:champID', async (req, res) => {
+    console.log(req.params.champID);
+    const stats = await Champ.findOne({_id: req.params.champID}).populate('stats');
+    res.send(stats);
+})
+
+router.get('/api/champTeams/:champID', async (req, res) => {
+    console.log(req.params.champID);
+    const players = await Champ.findOne({_id: req.params.champID}).populate('teams');
+    res.send(players);
+})
+
+router.put('/api/champ/updateKeyStat/:statName/:champID', async (req, res) => {
+    const updated = await Champ.findOneAndUpdate({_id: req.params.champID}, {$set: {keyStat: req.params.statName}});
+    res.send(updated);
+})
+
+router.put('/api/champ/updateKeyStatValue/:value/:champID', async (req, res) => {
+    const updated = await Champ.findOneAndUpdate({_id: req.params.champID}, {$set: {keyStatValue: req.params.value}})
+    res.send(updated);
 })
 
 
