@@ -19,12 +19,39 @@ const ResultsCard = ({ champID }) => {
     const Td = Reactable.Td;
     useEffect(async () => {
         const foundChamp = await axios.get(`/api/champ/${champID}`);
-        setKeyStat({keyStatName: foundChamp.data.keyStat, keyStatValue: foundChamp.data.keyStatValue})
+        setKeyStat({ keyStatName: foundChamp.data.keyStat, keyStatValue: foundChamp.data.keyStatValue })
         console.log(foundChamp.data);
         setPlayers(foundChamp.data.players);
+        getTeamStats();
         // createCol();
     }, [])
 
+    const getTeamStats = async () => {
+        let teams = await axios.get(`/api/populatedChampTeams/${champID}`);
+        teams = teams.data.teams;
+        console.log(teams.players);
+        let stats = teams[0].players[0].stats.map(stat => stat.statName);
+        console.log(stats);
+        let tmpStats = [];
+        teams.forEach(team => {
+            let tmpTeam = {
+                teamName: team.teamName,
+                stats: []
+            };
+            stats.forEach(stat => {
+                let tmpStat = {
+                    statName: stat,
+                    value: 0
+                };
+                tmpTeam.stats.push(tmpStat)
+            })
+            tmpStats.push(tmpTeam);
+        });
+        console.log(tmpStats);
+
+        
+
+    }
 
     return (
         <Container>

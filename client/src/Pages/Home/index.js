@@ -10,7 +10,7 @@ import Search from '../../components/Search'
 
 
 
-function Home({ search, setSearch }) {
+function Home({ search, setSearch, setLoggedIn }) {
 
     const history = useHistory();
 
@@ -28,6 +28,7 @@ function Home({ search, setSearch }) {
         const loggedInUser = await axios.post('/login', user);
         console.log(loggedInUser);
         if (loggedInUser.status === 200) {
+            setLoggedIn(true);
             history.push('/adminHome');
         }
         setUser({ ...user, status: loggedInUser.status });
