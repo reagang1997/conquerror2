@@ -9,16 +9,28 @@ const ResultsCard = ({ champID }) => {
     const [players, setPlayers] = useState([]);
     const [cols, setCols] = useState([]);
     const [update, setUpdate] = useState(0);
+    const [keyStat, setKeyStat] = useState({
+        keyStatName: '',
+        keyStatValue: ''
+    });
 
     const Table = Reactable.Table;
     const Tr = Reactable.Tr;
     const Td = Reactable.Td;
     useEffect(async () => {
         const foundChamp = await axios.get(`/api/champ/${champID}`);
+
+        setKeyStat({keyStatName: foundChamp.data.keyStat, keyStatValue: foundChamp.data.keyStatValue})
+        console.log(foundChamp.data);
+        setPlayers(foundChamp.data.players);
+        // createCol();
+    }, [])
+
+
         setPlayers(foundChamp.data.players);
 
     }, [cols])
-   
+
 
     return (
         <Container>
