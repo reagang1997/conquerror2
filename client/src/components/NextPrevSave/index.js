@@ -13,7 +13,6 @@ const PrevNextBtns = ({ index, setIndex, players, tmpResult, setTmpResult, updat
                 <Col><Button variant='dark' id='nxtBtn' block onClick={async (e) => {
                     if(tmpResult.length === players[index].stats.length){
                         if(updatedCount !== players.length){
-                            console.log(tmpResult);
                             let playerInfo = {
                                 playerID: players[index]._id,
                                 statsToUpdate: []
@@ -25,15 +24,12 @@ const PrevNextBtns = ({ index, setIndex, players, tmpResult, setTmpResult, updat
                                 };
                                 playerInfo.statsToUpdate.push(stat);
                             });
-                            console.log(playerInfo);
                             let updatedPlayer = await axios.put(`/api/updatePlayerStats`, playerInfo);
                             setTmpResult([]);
                             players[index].stats.forEach(stat => {
                                 document.getElementById(stat.statName).value = '';
                             })
                             setUpdatedCount(updatedCount + 1);
-                            console.log('updatedCOunt: ' + updatedCount);
-                            console.log('players length' + players.length)
                         }
                     }
                     

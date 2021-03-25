@@ -15,14 +15,13 @@ const TeamCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
 
 
     useEffect(() => {
-        // console.log(tmpStat);
+
         getChampID();
     }, [tmpTeam])
 
     const getChampID = () => {
         let url = window.location.href;
         url = url.split('/');
-        console.log('url: ', url)
         if (url.length !== 6) {
             url = window.location.href;
             url = url.split('/');

@@ -25,11 +25,9 @@ const NewChampBtn = () => {
         const user = await axios.get('/api/user');
         const userData = user.data
         setUser(userData);
-        console.log(userData);
     }
 
     const createChamp = async (e) => {
-        console.log('hit');
         const tmp = {
             champName: 'xxxxxxxxxxxxxxxxxxxxxxxx',
             stats: [],
@@ -48,10 +46,7 @@ const NewChampBtn = () => {
 
     const addAdmin = async () => {
         const addAdmin = `/api/addAdmin/${user._id}/xxxxxxxxxxxxxxxxxxxxxxxx`;
-        console.log(addAdmin);
         const updatedAdmins = await axios.put(`/api/addAdmin/${user._id}/xxxxxxxxxxxxxxxxxxxxxxxx`);
-        console.log(updatedAdmins);
-        console.log(tmpChamp)
         history.push(`/createChampionship/`);
 
     }

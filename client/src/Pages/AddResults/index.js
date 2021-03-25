@@ -24,11 +24,8 @@ function AddResults() {
         url = url.split('/');
         const champID = url[url.length - 1];
         const champ = await axios.get(`/api/champ/${champID}`);
-        console.log(champ.data);
         setChamp(champ.data);
-        console.log(champ.data.players)
         setPlayers(champ.data.players);
-        console.log(players)
         setResults(players)
 
     }, [])
@@ -49,7 +46,6 @@ function AddResults() {
             setTmpResult={setTmpResult}
             
             />
-            {/* <ResultsCard /> */}
             <br />
             <PrevNxt 
             index={index} 
@@ -60,7 +56,6 @@ function AddResults() {
             updatedCount={updatedCount}
             setUpdatedCount={setUpdatedCount}
             />
-            {/* <SaveBtn /> */}
         </div>
     );
 };

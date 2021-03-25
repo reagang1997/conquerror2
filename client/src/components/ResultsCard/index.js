@@ -49,7 +49,9 @@ const ResultsCard = ({ champID }) => {
         });
         console.log(tmpStats);
 
-        
+        teams.forEach(team => {
+            
+        })
 
     }
 

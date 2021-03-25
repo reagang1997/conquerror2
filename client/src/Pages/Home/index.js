@@ -26,13 +26,11 @@ function Home({ search, setSearch, setLoggedIn }) {
 
         const createdUser = await axios.post('/signup', user);
         const loggedInUser = await axios.post('/login', user);
-        console.log(loggedInUser);
         if (loggedInUser.status === 200) {
             setLoggedIn(true);
             history.push('/adminHome');
         }
         setUser({ ...user, status: loggedInUser.status });
-        console.log(user);
 
     }
 
@@ -75,7 +73,7 @@ function Home({ search, setSearch, setLoggedIn }) {
                                 <input placeholder='password' type='password' onChange={(e) => setUser({ ...user, password: e.target.value })}></input>
                             </div>
                             <div className="row justify-content-center">
-                                <button className="btn btn-dark" onClick={createUser}>Login</button>
+                                <button className="btn btn-dark" onClick={createUser}>Sign Up</button>
                                 {user.stats === 200 ? <Redirect to='/adminHome' /> : console.log('not logged in')}
                             </div>
                         </div>

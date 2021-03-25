@@ -32,7 +32,6 @@ function CreateChamp() {
     useEffect(() => {
         let url = window.location.href;
         url = url.split('/');
-        console.log('url: ', url)
         if (url.length !== 6) {
             getTmpChamp();
             url = window.location.href;
@@ -52,19 +51,16 @@ function CreateChamp() {
 
     const getTeams = async () => {
         const tmpTeams = await axios.get(`/api/champTeams/${champID}`);
-        console.log(tmpTeams);
         setTeams(tmpTeams.data.teams);
     }
 
     const getStats = async () => {
         const tmpStats = await axios.get(`/api/champStats/${champID}`);
-        console.log(tmpStats.data.stats)
         setStats(tmpStats.data.stats);
     }
     const getTmpChamp = async () => {
         if(renderCount === 0){
             const tmpChamp = await axios.get('/api/tmpChamp');
-            console.log(tmpChamp.data)
             history.push(`/createChampionship/${tmpChamp.data._id}`)
             setUpdate(update + 1);
         }
@@ -78,7 +74,7 @@ function CreateChamp() {
         <div className="container">
             <br />
             <div>
-                <h1 className="title shadow"> <h1 id={'create-champ'}>Create Your League</h1>
+                <h1 className="title shadow"> <h1 id={'create-champ'}>Create Your Championship</h1>
                     <InputGroup className="mb-3">
                         <FormControl
                             placeholder="Create Champ League"
@@ -91,7 +87,6 @@ function CreateChamp() {
 
                     <Button variant="dark" onClick={async (e) => {
                         e.preventDefault();
-                        console.log(champ.name);
                         document.getElementById('create-champ').innerHTML = champ.name
                         const newName = axios.put('/api/updateChampName', champ);
                     }
