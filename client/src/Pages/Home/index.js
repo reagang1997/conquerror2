@@ -72,7 +72,7 @@ function Home({ search, setSearch }) {
                                 <input placeholder='password' type='password' onChange={(e) => setUser({ ...user, password: e.target.value })}></input>
                             </div>
                             <div className="row justify-content-center">
-                                <button className="btn btn-dark" onClick={createUser}>Login</button>
+                                <button className="btn btn-dark" onClick={createUser}>Sign Up</button>
                                 {user.stats === 200 ? <Redirect to='/adminHome' /> : console.log('not logged in')}
                             </div>
                         </div>
