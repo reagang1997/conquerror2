@@ -13,6 +13,7 @@
 
 .resultLink, .editLink {
     text-align: right;
+    border: none;
 }
 
 #weirdCol {
