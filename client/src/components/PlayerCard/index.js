@@ -14,14 +14,12 @@ const PlayerCard = ({ teams, players, setPlayers, update, setUpdate, champID, se
     const [champ, setChamp] = useState('');
 
     useEffect(() => {
-        // console.log(tmpStat);
         getChampID();
     }, [tmpPlayer])
 
     const getChampID = () => {
         let url = window.location.href;
         url = url.split('/');
-        console.log('url: ', url)
         if (url.length !== 6) {
             url = window.location.href;
             url = url.split('/');
@@ -73,7 +71,6 @@ const PlayerCard = ({ teams, players, setPlayers, update, setUpdate, champID, se
                         <Form.Group controlId="exampleForm.ControlSelect1">
                             <Form.Control as="select" onChange={async (e) => {
                                 const teamName = e.target.value;
-                                console.log(teamName);
                                 let id = await axios.get(`/api/teamByName/${teamName}`);
                                 id = id.data._id;
                                 setTmpPlayer({ ...tmpPlayer, team: id });

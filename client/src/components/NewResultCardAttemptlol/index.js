@@ -6,18 +6,6 @@ const NewResults = ({ players, index, results, setResults, tmpResult, setTmpResu
 
     useEffect(() => {
 
-        
-        // if(players.length > 0){
-        //     const result = {
-        //         stats: [],
-        //         playerName: ''
-        //     }
-        //     for(let i = 0; i < players[index].stats.length; i++){
-        //         result.stats.push(players[index].stats[i]);
-        //     }
-        //     setTmpResult({...tmpResult, result})
-        // }
-        
     }, [players])
 
     return (
@@ -35,11 +23,9 @@ const NewResults = ({ players, index, results, setResults, tmpResult, setTmpResu
                                             <Form.Label column sm={2}>{stat.statName}</Form.Label>
                                             <Col sm={10}>
                                                 <Form.Control type="text" placeholder="0" id={stat.statName} onBlur={(e) => {
-                                                    console.log(stat.statName)
                                                     let foundDupe = false;
                                                     const filteredResults = tmpResult.map(result => {
                                                         if(result.statName === stat.statName){
-                                                            console.log('dupe')
                                                             result.value = e.target.value;
                                                             foundDupe = true;
                                                             return result;

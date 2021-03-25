@@ -17,7 +17,6 @@ const InputStat = ({name, id,  flag, stats, players, teams, setStats, setPlayers
             case 'stat': {
                 const newStats = await axios.get(`/api/stats/${idToDelete._id}/${champID}`);
                 setStats(newStats.data.stats);
-                console.log(newStats.data)
                 setUpdate(update + 1)
                 break;
             }
