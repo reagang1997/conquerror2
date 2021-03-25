@@ -10,16 +10,7 @@ const PrevNextBtns = ({ index, setIndex, players, tmpResult, setTmpResult, updat
     return (
         <Container>
             <Row>
-                <Col><Button variant='dark' block onClick={(e) => {
-                    if (index === 0) {
-                        setIndex(players.length - 1)
-                    }
-                    else{
-                        setIndex(index - 1)
-                    }
-                }}>Prev...</Button></Col>
-                <Col><Button variant='dark' block>Save</Button></Col>
-                <Col><Button variant='dark' block onClick={async (e) => {
+                <Col><Button variant='dark' id='nxtBtn' block onClick={async (e) => {
                     if(tmpResult.length === players[index].stats.length){
                         if(updatedCount !== players.length){
                             console.log(tmpResult);
