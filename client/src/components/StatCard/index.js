@@ -94,7 +94,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
                         />
                     </InputGroup>
 
-                    <Form.Group as={Row} controlId="formHorizontalEmail">
+                    {/* <Form.Group as={Row} controlId="formHorizontalEmail">
                         <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
                             <Form.Label column sm={3}>
                                 Key Stat:
@@ -116,9 +116,9 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
                                 </Form.Control>
                             </Form.Group>
                         </Col>
-                    </Form.Group>
+                    </Form.Group> */}
 
-                    <Form>
+                    {/* <Form>
                         <Form.Check inline type='radio' name="group1" id="Check1" value="highestToLowest" label='Highest to Lowest' onClick={async (e) => {
                             setKeyStatValue(e.target.value)
                             const updated = await axios.put(`/api/champ/updateKeyStatValue/${e.target.value}/${champID}`);
@@ -128,7 +128,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
                             const updated = await axios.put(`/api/champ/updateKeyStatValue/${e.target.value}/${champID}`);
                             } }/>
                     </Form>
-                    <br />
+                    <br /> */}
 
                     <Button variant="dark" block className="right test" onClick={async (e) => {
                         document.getElementById('stat').value = "";
