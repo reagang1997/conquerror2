@@ -145,7 +145,7 @@ const StatCard = ({ stats, players, teams, setStats, setPlayers, setTeams, updat
 
                         console.log(tmpStat);
                         // setStats([...stats, tmpStat]);
-                        // setTmpStat({ name: "" });
+                        setTmpStat({ name: "" });
                         // console.log(stats);
                         // console.log(tmpStat);
                         setUpdate(update + 1);
