@@ -22,7 +22,7 @@ function App() {
         <Home search={search} setSearch={setSearch} isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       </Route>
       <Route exact path="/adminHome">
-          <AdminLand champID={champID} setChampID={setChampID}/>
+          <AdminLand champID={champID} setChampID={setChampID} isLoggedIn={isLoggedIn}/>
       </Route>
       <Route path='/createChampionship' component={CreateChamp} />
       <Route path='/editChamp'>

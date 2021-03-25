@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Search from '../Search';
 import Login from '../Login';
+import { Button } from 'react-bootstrap';
+
 import "./style.css"
 
 
-function NavTabs({ isLoggedIn, setLoggedIn}) {
+function NavTabs({ isLoggedIn, setLoggedIn }) {
+
+    const history = useHistory();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -19,7 +23,8 @@ function NavTabs({ isLoggedIn, setLoggedIn}) {
                     <li className="nav-item">
                     </li>
                     <li className="nav-item">
-                        {isLoggedIn ? <div></div> : <Login setLoggedIn={setLoggedIn}></Login>}
+                        {isLoggedIn ? <div><Button onClick={(e) => history.push('/adminHome')}>Admin Home</Button>
+                        <Button onClick={(e) => history.push('/searchResults')}>Search For Championship</Button> </div>: <Login setLoggedIn={setLoggedIn}></Login>}
                     </li>
                     <li className="nav-item">
 
