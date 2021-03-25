@@ -7,6 +7,7 @@ import CreateChamp from './Pages/CreateChamp';
 import AddResults from './Pages/AddResults';
 import SearchResults from './Pages/SearchResults';
 import TheResultCard from './components/ResultsCard';
+import EditChamp from './Pages/EditChamp';
 
 function App() {
   const [search, setSearch] = useState({ champName: '' });
@@ -20,8 +21,13 @@ function App() {
       <Route exact path="/">
         <Home search={search} setSearch={setSearch} isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       </Route>
-      <Route exact path="/adminHome" component={AdminLand} />
+      <Route exact path="/adminHome">
+          <AdminLand champID={champID} setChampID={setChampID}/>
+      </Route>
       <Route path='/createChampionship' component={CreateChamp} />
+      <Route path='/editChamp'>
+        <EditChamp champID={champID} setChampID={setChampID}/>
+      </Route>
       <Route path='/addResults' component={AddResults} />
       <Route path='/searchResults'>
         <SearchResults search={search} setSearch={setSearch} champID={champID} setChampID={setChampID}/>

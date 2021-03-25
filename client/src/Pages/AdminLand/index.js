@@ -3,11 +3,9 @@ import './style.css';
 import Champ from '../../components/ChampChoice';
 import AddChampBtn from '../../components/AddChampBtn';
 import axios from 'axios';
-import DemoCard from '../../components/DemoCard';
-import NewDemoCard from '../../components/NewDemoCardlol';
-import ResultsCard from '../../components/ResultsCard';
 
-function AdminLand() {
+
+function AdminLand({champID, setChampID}) {
 
     const [user, setUser] = useState({
         username: '',
@@ -43,7 +41,7 @@ function AdminLand() {
             <br/>
 
             {champs.map(c => {
-                return <Champ flag='admin' champName={c.champName} id={c._id}/>
+                return <Champ flag='admin' champName={c.champName} id={c._id} champID={champID} setChampID={setChampID}/>
             })}
             {/* <Champ champName={champ} /> */}
             <AddChampBtn />

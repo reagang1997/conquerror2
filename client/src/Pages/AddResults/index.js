@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ResultsCard from '../../components/ResultsCard';
 import NewResults from '../../components/NewResultCardAttemptlol';
-import SaveBtn from '../../components/SaveBtn';
 import PrevNxt from '../../components/NextPrevSave';
 import './style.css';
 import axios from 'axios';
